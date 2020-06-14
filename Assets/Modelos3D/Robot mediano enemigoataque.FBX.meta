@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 9d5291886f3df3541b438904011cf2db
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 2452071883257605094
+    second: ataque
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ataque
+      takeName: ataque
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Robot mediano enemigoataque(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Robot enemigo mediano
+      parentName: Robot mediano enemigoataque(Clone)
+      position: {x: -0.05429673, y: 0.01882454, z: 0.98776335}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.286566, y: 2.286566, z: 1.74169}
+    - name: Cuerpo
+      parentName: Robot mediano enemigoataque(Clone)
+      position: {x: 0.08894165, y: 0.023443941, z: 1.3849472}
+      rotation: {x: -0.00000008940697, y: -1.1955648e-10, z: 6.938894e-18, w: 1}
+      scale: {x: 5.6384826, y: 5.6384826, z: 5.638483}
+    - name: Pierna D controler S
+      parentName: Cuerpo
+      position: {x: -0.02112924, y: 0.043817613, z: -0.05595298}
+      rotation: {x: 0.06039459, y: 0.07578468, z: 0.99502087, w: -0.023298252}
+      scale: {x: 0.10493547, y: 0.10493545, z: 0.10493549}
+    - name: gemelo D controler
+      parentName: Pierna D controler S
+      position: {x: -0.124810286, y: -0.22704978, z: -0.60248613}
+      rotation: {x: -0.02203845, y: 0.0022256074, z: 0.0011324419, w: 0.999754}
+      scale: {x: 0.6624216, y: 0.6624217, z: 0.66242135}
+    - name: Foot D controler
+      parentName: gemelo D controler
+      position: {x: -0.06352378, y: 0.1060919, z: -1.4447385}
+      rotation: {x: 0.07474393, y: -0.027424669, z: 0.47957295, w: -0.87388283}
+      scale: {x: 1.8513998, y: 1.8513995, z: 1.8513997}
+    - name: Foot D controlerS
+      parentName: Foot D controler
+      position: {x: -0.03339575, y: 0.04140165, z: 0.22900221}
+      rotation: {x: 0.0013849287, y: -0.029404564, z: 0.9993674, w: -0.01995544}
+      scale: {x: 0.9999998, y: 1, z: 1}
+    - name: Pierna I controler S001
+      parentName: Cuerpo
+      position: {x: -0.010418843, y: -0.04548583, z: -0.05595298}
+      rotation: {x: 0.03512623, y: -0.12741616, z: 0.9909412, w: -0.023810059}
+      scale: {x: 0.10493553, y: 0.1049355, z: 0.10493552}
+    - name: gemelo I controler001
+      parentName: Pierna I controler S001
+      position: {x: -0.11720856, y: 0.30676803, z: -0.570641}
+      rotation: {x: 0, y: -0, z: -0.0000000010791662, w: 1}
+      scale: {x: 0.66242105, y: 0.6624216, z: 0.6624209}
+    - name: Foot I controler001
+      parentName: gemelo I controler001
+      position: {x: 0.13693455, y: 0.25534138, z: -1.475015}
+      rotation: {x: 0.12772258, y: -0.03399439, z: 0.47965264, w: 0.8674472}
+      scale: {x: 1.8513999, y: 1.8513995, z: 1.8514003}
+    - name: Foot I controlerS001
+      parentName: Foot I controler001
+      position: {x: 0.060970426, y: 0.062244527, z: 0.2379005}
+      rotation: {x: 0.0013849413, y: -0.029404564, z: 0.9993674, w: -0.019955838}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: antebrazo  martillo controller
+      parentName: Cuerpo
+      position: {x: -0.010954861, y: 0.050360624, z: 0.005047124}
+      rotation: {x: 0.5486106, y: -0.7997979, z: -0.1668534, w: 0.1775097}
+      scale: {x: 0.10493544, y: 0.10493544, z: 0.10493549}
+    - name: Brazo  martillo controller
+      parentName: antebrazo  martillo controller
+      position: {x: -0.08445831, y: 0.30572185, z: -0.31359923}
+      rotation: {x: 2.9057274e-11, y: 0.4992002, z: -5.0436166e-11, w: 0.8664867}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: martillo Golpe controller001
+      parentName: Brazo  martillo controller
+      position: {x: -0.19323903, y: 0.48438036, z: -0.62525165}
+      rotation: {x: -0.18237235, y: 0.4048244, z: 0.756521, w: 0.4801392}
+      scale: {x: 1.0725682, y: 1.0725682, z: 1.0725688}
+    - name: martillo controller
+      parentName: martillo Golpe controller001
+      position: {x: -0.26396465, y: -0.0837647, z: -0.44627604}
+      rotation: {x: -0.54555756, y: 0.67058074, z: 0.38173872, w: -0.32705355}
+      scale: {x: 1.0000006, y: 0.999999, z: 0.99999964}
+    - name: antebrazo  Lanza controller001
+      parentName: Cuerpo
+      position: {x: -0.010954861, y: -0.046291623, z: 0.005047124}
+      rotation: {x: 0.6962249, y: 0.106086776, z: -0.13292894, w: 0.6973854}
+      scale: {x: -0.10493543, y: -0.10493547, z: -0.10493546}
+    - name: Brazo  Lanza controller002
+      parentName: antebrazo  Lanza controller001
+      position: {x: -0.054818667, y: 0.30621195, z: -0.3656293}
+      rotation: {x: 0.13793793, y: 0.48099867, z: -0.23589727, w: 0.83304614}
+      scale: {x: 0.9999998, y: 1, z: 1.0000004}
+    - name: Lanza controller001
+      parentName: Brazo  Lanza controller002
+      position: {x: -0.06481276, y: 0.0062502725, z: -0.39562643}
+      rotation: {x: 0.995695, y: 0.0054829414, z: -0.09245848, w: -0.0035945044}
+      scale: {x: -1.072569, y: -1.072568, z: -1.0725684}
+    - name: Pierna D
+      parentName: Cuerpo
+      position: {x: -0.021177841, y: 0.043817617, z: -0.056557897}
+      rotation: {x: 0.59626085, y: -0.16774666, z: 0.7743712, w: -0.12916401}
+      scale: {x: 0.44868746, y: 0.44868737, z: 0.44868714}
+    - name: Gemelo D
+      parentName: Pierna D
+      position: {x: -0.15385774, y: 0.00056648673, z: -0.013487195}
+      rotation: {x: 0.023148289, y: -0.1267676, z: -0.17813636, w: 0.9755314}
+      scale: {x: 0.99999976, y: 0.9999999, z: 1.0000001}
+    - name: Pie D
+      parentName: Gemelo D
+      position: {x: -0.15805194, y: 0.0013231992, z: -0.0010316988}
+      rotation: {x: 0.00064037926, y: -0.000020831823, z: -0.032698654, w: 0.99946505}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000002}
+    - name: antebrazo Martillo
+      parentName: Cuerpo
+      position: {x: -0.010954861, y: 0.050360627, z: 0.005047148}
+      rotation: {x: 0.29526767, y: 0.21520802, z: 0.73046553, w: -0.5769945}
+      scale: {x: 0.4486872, y: 0.4486874, z: 0.44868726}
+    - name: Brazo Martillo
+      parentName: antebrazo Martillo
+      position: {x: -0.10431428, y: 0, z: 0}
+      rotation: {x: -0.13351965, y: 0.33157662, z: -0.38875267, w: 0.8491765}
+      scale: {x: 0.9999996, y: 0.9999998, z: 0.9999998}
+    - name: Martillo
+      parentName: Brazo Martillo
+      position: {x: -0.08902329, y: 0.00000012111664, z: 0.000000048446655}
+      rotation: {x: -0.0041886806, y: -0.0056336964, z: -0.0460036, w: 0.9989166}
+      scale: {x: 1.000001, y: 1.0000004, z: 1}
+    - name: Pierna I
+      parentName: Cuerpo
+      position: {x: -0.011342426, y: -0.04548583, z: -0.056295425}
+      rotation: {x: 0.62093806, y: 0.1634915, z: 0.7547276, w: 0.13450937}
+      scale: {x: 0.4486874, y: 0.4486872, z: 0.44868714}
+    - name: Gemelo I
+      parentName: Pierna I
+      position: {x: -0.15397885, y: 0.00011995392, z: 0.00005089624}
+      rotation: {x: -0.017389353, y: -0.09522292, z: 0.17879027, w: 0.97911406}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000004}
+    - name: Pie I
+      parentName: Gemelo I
+      position: {x: -0.16288832, y: -0.0016305085, z: -0.0025697204}
+      rotation: {x: -0.0020053089, y: -0.00006580353, z: 0.03269878, w: 0.9994633}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000004}
+    - name: Antebrazo lanza
+      parentName: Cuerpo
+      position: {x: -0.010954861, y: -0.046291623, z: 0.005047148}
+      rotation: {x: 0.28283763, y: -0.18595558, z: 0.7117863, w: 0.61545414}
+      scale: {x: 0.4486871, y: 0.448687, z: 0.44868723}
+    - name: Brazo Lanza
+      parentName: Antebrazo lanza
+      position: {x: -0.112272225, y: 0.000000024223327, z: 0.000000048446655}
+      rotation: {x: 0.15148553, y: 0.32435167, z: 0.45197076, w: 0.8170499}
+      scale: {x: 1.0000008, y: 1.0000004, z: 1.0000002}
+    - name: Lanza
+      parentName: Brazo Lanza
+      position: {x: -0.093770824, y: 0.00000012111664, z: 0.000000024223327}
+      rotation: {x: -0.03219663, y: 0.00009810922, z: 0.072179444, w: 0.9968718}
+      scale: {x: 1.6396799, y: 1.0575031, z: 1.0002083}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

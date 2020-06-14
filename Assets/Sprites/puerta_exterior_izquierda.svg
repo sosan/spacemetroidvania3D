@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1608" viewBox="0 0 2048 1608">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1c1c20;
+      }
+
+      .cls-1, .cls-10, .cls-2, .cls-3, .cls-4, .cls-6, .cls-7, .cls-8, .cls-9 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3, .cls-9 {
+        fill: #383841;
+      }
+
+      .cls-12, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-9 {
+        stroke: #000;
+      }
+
+      .cls-12, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        stroke-width: 3px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #181619;
+      }
+
+      .cls-6 {
+        fill: #242325;
+      }
+
+      .cls-7 {
+        fill: #ac4c21;
+      }
+
+      .cls-8 {
+        fill: #22201e;
+      }
+
+      .cls-9 {
+        stroke-width: 3.02px;
+      }
+
+      .cls-10, .cls-11 {
+        fill: #171717;
+      }
+
+      .cls-12 {
+        fill: #141418;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M-4.963,254H78L75.926,1802-6,1803Z" transform="translate(0 -224.5)"/>
+  <path class="cls-2" d="M209,1797l25.313,1L236,255l-27,1V1797Z" transform="translate(0 -224.5)"/>
+  <path class="cls-3" d="M73,256V1802H87V255Z" transform="translate(0 -224.5)"/>
+  <path class="cls-4" d="M86,1802l129,3V248H84Z" transform="translate(0 -224.5)"/>
+  <rect class="cls-5" x="86" y="1358.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy" data-name="Rectangle 2 copy" class="cls-5" x="86" y="1138.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy_2" data-name="Rectangle 2 copy 2" class="cls-5" x="86" y="930.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy_3" data-name="Rectangle 2 copy 3" class="cls-5" x="86" y="750.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy_4" data-name="Rectangle 2 copy 4" class="cls-5" x="86" y="557.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy_5" data-name="Rectangle 2 copy 5" class="cls-5" x="86" y="383.5" width="128" height="3"/>
+  <rect id="Rectangle_2_copy_6" data-name="Rectangle 2 copy 6" class="cls-5" x="86" y="203.5" width="128" height="3"/>
+  <path id="Rounded_Rectangle_4_copy" data-name="Rounded Rectangle 4 copy" class="cls-6" d="M104.189,1628.09l98.7,98.91a7.153,7.153,0,1,1-10.1,10.13l-98.7-98.91A7.154,7.154,0,0,1,104.189,1628.09Zm98.7,0.78a7.176,7.176,0,0,1,0,10.13l-98.7,98.91a7.154,7.154,0,0,1-10.1-10.13l98.7-98.91A7.126,7.126,0,0,1,202.89,1628.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_2" data-name="Rounded Rectangle 4 copy 2" class="cls-6" d="M104.189,1428.09l98.7,98.91a7.153,7.153,0,1,1-10.1,10.13l-98.7-98.91A7.154,7.154,0,0,1,104.189,1428.09Zm98.7,0.78a7.176,7.176,0,0,1,0,10.13l-98.7,98.91a7.154,7.154,0,0,1-10.1-10.13l98.7-98.91A7.126,7.126,0,0,1,202.89,1428.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_3" data-name="Rounded Rectangle 4 copy 3" class="cls-6" d="M104.189,1218.09l98.7,98.91a7.153,7.153,0,1,1-10.1,10.13l-98.7-98.91A7.154,7.154,0,0,1,104.189,1218.09Zm98.7,0.78a7.176,7.176,0,0,1,0,10.13l-98.7,98.91a7.154,7.154,0,0,1-10.1-10.13l98.7-98.91A7.126,7.126,0,0,1,202.89,1218.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_4" data-name="Rounded Rectangle 4 copy 4" class="cls-6" d="M104.189,1018.09l98.7,98.91a7.153,7.153,0,1,1-10.1,10.13l-98.7-98.91A7.154,7.154,0,1,1,104.189,1018.09Zm98.7,0.78a7.176,7.176,0,0,1,0,10.13l-98.7,98.91a7.154,7.154,0,0,1-10.1-10.13l98.7-98.91A7.126,7.126,0,0,1,202.89,1018.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_5" data-name="Rounded Rectangle 4 copy 5" class="cls-6" d="M104.189,826.092l98.7,98.913a7.152,7.152,0,1,1-10.1,10.125l-98.7-98.913A7.152,7.152,0,0,1,104.189,826.092Zm98.7,0.778a7.17,7.17,0,0,1,0,10.125l-98.7,98.913a7.152,7.152,0,0,1-10.1-10.125l98.7-98.913A7.133,7.133,0,0,1,202.89,826.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_6" data-name="Rounded Rectangle 4 copy 6" class="cls-7" d="M104.189,644.092l98.7,98.913a7.152,7.152,0,1,1-10.1,10.125l-98.7-98.913A7.152,7.152,0,0,1,104.189,644.092Zm98.7,0.778a7.17,7.17,0,0,1,0,10.125l-98.7,98.913a7.152,7.152,0,0,1-10.1-10.125l98.7-98.913A7.133,7.133,0,0,1,202.89,644.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_7" data-name="Rounded Rectangle 4 copy 7" class="cls-6" d="M104.189,466.092l98.7,98.913a7.152,7.152,0,1,1-10.1,10.125l-98.7-98.913A7.152,7.152,0,0,1,104.189,466.092Zm98.7,0.778a7.17,7.17,0,0,1,0,10.125l-98.7,98.913a7.152,7.152,0,0,1-10.1-10.125l98.7-98.913A7.133,7.133,0,0,1,202.89,466.87Z" transform="translate(0 -224.5)"/>
+  <path id="Rounded_Rectangle_4_copy_8" data-name="Rounded Rectangle 4 copy 8" class="cls-6" d="M104.189,276.092l98.7,98.913a7.152,7.152,0,1,1-10.1,10.125l-98.7-98.913A7.152,7.152,0,0,1,104.189,276.092Zm98.7,0.778a7.17,7.17,0,0,1,0,10.125l-98.7,98.913a7.152,7.152,0,0,1-10.1-10.125l98.7-98.913A7.133,7.133,0,0,1,202.89,276.87Z" transform="translate(0 -224.5)"/>
+  <path id="Shape_15_copy" data-name="Shape 15 copy" class="cls-8" d="M230,1797l15,1,1-1537-16,1V1797Z" transform="translate(0 -224.5)"/>
+  <path class="cls-9" d="M242,263l64,1,2,1535-65,1Z" transform="translate(0 -224.5)"/>
+  <path class="cls-10" d="M293,260h15V1799H293V260Z" transform="translate(0 -224.5)"/>
+  <rect class="cls-11" x="242" y="35.5" width="66" height="12"/>
+  <rect class="cls-12" x="-7" y="1570.5" width="2063" height="36"/>
+  <rect id="Shape_14_copy" data-name="Shape 14 copy" class="cls-12" x="-7" y="1.5" width="2063" height="36"/>
+</svg>
