@@ -187,7 +187,7 @@ public class RopeManager : MonoBehaviour
         { 
         
             print("pulsado E desde Ropemanager");
-
+            
             Vector3 facingDirection = Vector3.zero;
             facingDirection = presaEscaladaPosition - player.transform.position;
 
@@ -256,17 +256,17 @@ public class RopeManager : MonoBehaviour
         
         bool encontrado = false;
 
-        Debug.DrawLine(player.transform.position, destinoPos, Color.red, 10000);
+        //Debug.DrawLine(player.transform.position, destinoPos, Color.red, 10000);
 
         if (isPresaSelected == true)
         { 
 
-            print("destinopos=" + destinoPos + " presapos=" + presaEscaladaPosition + "playerPos=" + player.transform.position);
+            //print("destinopos=" + destinoPos + " presapos=" + presaEscaladaPosition + "playerPos=" + player.transform.position);
             RaycastHit hit = default;
             if (Physics.Linecast(player.transform.position, presaEscaladaPosition, out hit, ropeLayerMask) == true )
             { 
                 
-                print("coliision" + hit.transform.name);
+                //print("coliision" + hit.transform.name);
                 //SpringJoint ropeJoint = hit.transform.gameObject.AddComponent<SpringJoint>();
                 ropeJoint = hit.transform.GetComponent<HingeJoint>();
 
@@ -307,7 +307,7 @@ public class RopeManager : MonoBehaviour
                     
                     }
 
-
+                    playerMovement.isUsedGancho = true;
                     rigid.AddForce(new Vector3(x, 15f, 0), ForceMode.Impulse);
                     await UniTask.Delay(TimeSpan.FromMilliseconds(300));
 

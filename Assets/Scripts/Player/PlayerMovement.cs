@@ -190,6 +190,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystemRenderer[] particulaGiroRender = null;
 
 
+    public bool isUsedGancho = false;
+    public bool isPlayerFalling = false;
+
     private void OnEnable()
     {
 
@@ -1126,40 +1129,49 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject objectCollide = null;
     [SerializeField] private Transform parentObjectTaken = null;
     [SerializeField] private Transform parentScene = null;
+    
+
 
     private void CogerObjeto_started(InputAction.CallbackContext obj)
     {
 
-        isPresedTaken = true;
+        
 
 # if UNITY_EDITOR
         print("apretado boton shift. istouching=" + isTouchingBox + " isboxtaken=" + isBoxCollide);
 # endif
 
-        if (isTouchingBox == true)
-        { 
-
-            if (isBoxCollide == true) return;
-            if (objectCollide is null == true) return;
-            if (objectCollide.GetComponent<BoxManager>().isMovable == false) return;
+        if (isTouchingBox == false)
+        {
             
-
-            isBoxCollide = true;
-            isBoxTaken = true;
-            canMove = true;
-            
-            if (objectCollide != null)
+            bool colisions = 1 <= Physics.RaycastNonAlloc(this.transform.position, this.transform.right, resultsTouchBox, 2f * facingDirection, whatIsBox);
+            print(colisions);
+            if (colisions == false )
             { 
-                objectCollide.transform.parent = parentObjectTaken;
-                //objectCollide.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                return;
+            
             }
             
-            
-            
-
-
         }
 
+        isPresedTaken = true;
+      
+
+
+        if (isBoxCollide == true) return;
+        if (objectCollide is null == true) return;
+        if (objectCollide.GetComponent<BoxManager>().isMovable == false) return;
+            
+
+        isBoxCollide = true;
+        isBoxTaken = true;
+        canMove = true;
+            
+        if (objectCollide != null)
+        { 
+            objectCollide.transform.parent = parentObjectTaken;
+            //objectCollide.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        }
 
     }
 

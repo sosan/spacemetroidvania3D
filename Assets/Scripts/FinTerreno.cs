@@ -28,16 +28,21 @@ public class FinTerreno : MonoBehaviour
 #endif
         if (other.CompareTag("Player"))
         { 
-                    
+                   
             var player = other.GetComponentInParent<PlayerMovement>();
             if (player == null) return;
+            if (player.isPlayerFalling == true) return;
 
+            player.isPlayerFalling = true;
 			player.canMove = false;
-            player.rigid.useGravity = false;
+            player.rigid.useGravity = true;
             player.rigid.velocity = Vector3.zero;
+
+
             if (player.isFacingRight == true)
             { 
                 player.muerteRobot.Play();
+               
             }
             else
             { 
@@ -50,6 +55,7 @@ public class FinTerreno : MonoBehaviour
             player.SetHealth(100);
             await UniTask.Delay(800);
 
+            player.gameObject.SetActive(false);
             player.isTeleporting = true;
             player.transform.position = positionReinicioPlayer.position;
             
@@ -60,6 +66,9 @@ public class FinTerreno : MonoBehaviour
             player.rigid.useGravity = true;
             player.isTeleporting = false;
 			player.canMove = true;
+            player.gameObject.SetActive(true);
+            player.isPlayerFalling = false;
+
 
         }
 
