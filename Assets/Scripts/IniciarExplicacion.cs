@@ -22,17 +22,12 @@ public class IniciarExplicacion : MonoBehaviour
         
         if (other.CompareTag("Player"))
         { 
-
             colider.enabled = false;
             charlaManager.AparecerCharlaExplicacion(keyLocalization);
-        
-        
-        
+
         }
 
     }
-
-
 
 
 }

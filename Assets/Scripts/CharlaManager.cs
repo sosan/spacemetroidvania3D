@@ -96,9 +96,9 @@ public class CharlaManager : MonoBehaviour
         TextTokenizer.RegisterDefaultTokenizer();
         inputActions = new Controles();
         inputActions.PlayerMovement.activar.performed += SiguienteCharla;
-        inputActions.PlayerMovement.testeo_activar.performed += NuevaCharla;
+        //inputActions.PlayerMovement.testeo_activar.performed += NuevaCharla;
         inputActions.PlayerMovement.activar.Enable();
-        inputActions.PlayerMovement.testeo_activar.Enable();
+        //inputActions.PlayerMovement.testeo_activar.Enable();
 
         charlaPanel1.SetActive(false);
         textoCharlaPanel1.text = "";
@@ -117,10 +117,10 @@ public class CharlaManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private async void Start()
+    private void Start()
     {
-        await UniTask.Delay(1000);
-        AparecerNuevaZona();
+        //await UniTask.Delay(1000);
+        //AparecerNuevaZona();
 
 
 
@@ -138,7 +138,14 @@ public class CharlaManager : MonoBehaviour
     public async void AparecerCharlaExplicacion(string key)
     {
     
-        if (isCharlaEmpezada == true) return;
+        if (isCharlaEmpezada == true)
+        { 
+        
+            await UniTask.Delay(TimeSpan.FromSeconds(4));
+            AparecerCharlaExplicacion(key);
+            return;
+        }
+
         isCharlaEmpezada = true;
 
         botonSiguiente.SetActive(false);
@@ -156,7 +163,7 @@ public class CharlaManager : MonoBehaviour
 
         await UniTask.Delay(TimeSpan.FromSeconds(5));
         
-         animHud.Play("charla_salida1");
+        animHud.Play("charla_salida1");
         await UniTask.Delay(TimeSpan.FromMilliseconds(200));
         textoCharlaPanel1.text = "";
         botonSiguiente.SetActive(true);
