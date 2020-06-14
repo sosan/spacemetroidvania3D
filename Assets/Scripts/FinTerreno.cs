@@ -44,15 +44,11 @@ public class FinTerreno : MonoBehaviour
                 player.muerteRobotExterior.Play();
             }
 
-            
-
-            player.SetHealth(100);
-            
-            
-            await UniTask.Delay(TimeSpan.FromMilliseconds(300));
+            await UniTask.Delay(TimeSpan.FromMilliseconds(1500));
 
             player.transition.EnterTransition();
-            await UniTask.Delay(600);
+            player.SetHealth(100);
+            await UniTask.Delay(800);
 
             player.isTeleporting = true;
             player.transform.position = positionReinicioPlayer.position;
@@ -78,16 +74,16 @@ public class FinTerreno : MonoBehaviour
                 var junta2 = junta1.connectedBody;
                 if (junta2 != null)
                 { 
-                    junta2.GetComponent<BoxManager>().DestruirBox();
+                    junta2.GetComponent<BoxManager>().DestruirBox(10);
                 
                 
                 }
-                junta1.GetComponent<BoxManager>().DestruirBox();
+                junta1.GetComponent<BoxManager>().DestruirBox(10);
             
             }
 
 
-            other.GetComponentInParent<BoxManager>().DestruirBox();
+            other.GetComponentInParent<BoxManager>().DestruirBox(10);
         
         }
 

@@ -1122,7 +1122,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private bool isPresedTaken = false;
+    public bool isPresedTaken = false;
     [SerializeField] public GameObject objectCollide = null;
     [SerializeField] private Transform parentObjectTaken = null;
     [SerializeField] private Transform parentScene = null;
@@ -1132,7 +1132,10 @@ public class PlayerMovement : MonoBehaviour
 
         isPresedTaken = true;
 
-        print("apretado boton MAYS. istouching=" + isTouchingBox + " isboxtaken=" + isBoxCollide);
+# if UNITY_EDITOR
+        print("apretado boton shift. istouching=" + isTouchingBox + " isboxtaken=" + isBoxCollide);
+# endif
+
         if (isTouchingBox == true)
         { 
 
@@ -1162,9 +1165,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void CogerObjeto_canceled(InputAction.CallbackContext obj)
     {
-        
+
         //if (isBoxTaken == false) return;
+# if UNITY_EDITOR
         print("BOTON MAYS CANCELADO sujeta box");
+# endif
         CancelarObjetoCogido();
 
 

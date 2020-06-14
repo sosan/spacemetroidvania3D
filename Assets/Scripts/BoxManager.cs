@@ -136,17 +136,20 @@ public class BoxManager : MonoBehaviour
     {
 
 # if UNITY_EDITOR
-        //print("Box Manager => OnCollision -> name=" + collision.transform.name + " tag=" + collision.transform.tag);
+        print("Box Manager => OnCollision -> tag=" + collision.transform.tag + " name=" + collision.transform.name  );
 #endif
 
         if (collision.transform.CompareTag("CajaSuelta") == true)
         { 
-            if (playerMovement.isTouchingBox == true && playerMovement.objectCollide == collision.transform.gameObject)
+            if (playerMovement.isTouchingBox == true && playerMovement.objectCollide == collision.transform.gameObject && playerMovement.isPresedTaken == true)
             { 
                 if (pisosActuales >= pisosMaximo) return;
                 
+                
                 playerMovement.objectCollide.GetComponent<BoxManager>().AnimBox(this.gameObject, 
                     collision.gameObject.GetComponent<Rigidbody>());
+
+                
                 
 
             }
@@ -210,24 +213,58 @@ public class BoxManager : MonoBehaviour
     }
 
 
-    public async void DestruirBox()
+    public async void DestruirBox(float fuerza)
     { 
         cajaSinFractura.SetActive(false);
         cajaConFractura.SetActive(true);
 
-        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        //cajaConFractura.layer = LayerMask.NameToLayer("IgnoreRaycast");
 
-        puntoContacto = Vector3.down;
-        for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
-        {
-            rigidsBoxFracture[i].isKinematic = false;
-            rigidsBoxFracture[i].GetComponent<MeshCollider>().enabled = true;
+        //rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        rigid.constraints = RigidbodyConstraints.None;
+        puntoContacto = this.gameObject.transform.position;
+
+        var arribaRigid = rigid.GetComponent<FixedJoint>();
+        if (arribaRigid != null)
+        { 
+
+
+            Rigidbody[] rigidBodiesFracture = arribaRigid.GetComponent<BoxManager>().rigidsBoxFracture;
+
+            for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
+            {
+                rigidsBoxFracture[i].isKinematic = false;
+                rigidBodiesFracture[i].isKinematic = false;
+                
+                rigidsBoxFracture[i].GetComponent<MeshCollider>().enabled = true;
+                rigidBodiesFracture[i].GetComponent<MeshCollider>().enabled = true;
+                
+                rigidsBoxFracture[i].AddExplosionForce(fuerza, puntoContacto, 100);
+                rigidBodiesFracture[i].AddExplosionForce(fuerza, puntoContacto, 100);
 
                 
-            rigidsBoxFracture[i].AddExplosionForce(100, puntoContacto, 100);
+            }
+
+                        
+        
+        }
+        else
+        { 
+            for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
+            {
+                rigidsBoxFracture[i].isKinematic = false;
+                rigidsBoxFracture[i].GetComponent<MeshCollider>().enabled = true;
+
                 
+                rigidsBoxFracture[i].AddExplosionForce(fuerza, puntoContacto, 100);
+                
+            }
+
+        
         }
 
+        
+        
         colliderBox.enabled = false;
 
         await UniTask.Delay(3000);
