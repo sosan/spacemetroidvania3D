@@ -115,10 +115,14 @@ public class BoxManager : MonoBehaviour
 
         rigid.useGravity = true;
 
+        rigid.constraints = RigidbodyConstraints.FreezeRotation;
+
         await UniTask.Delay(500);
         //rigid.useGravity = false;
         FixedJoint juntaFija = boxAbajo.AddComponent<FixedJoint>();
         juntaFija.connectedBody = arribaRigid;
+
+        
 
         this.GetComponentInChildren<BoxEsquinasManager>().izquierdaArriba.enabled = false;
         this.GetComponentInChildren<BoxEsquinasManager>().derechaArriba.enabled = false;
@@ -211,13 +215,16 @@ public class BoxManager : MonoBehaviour
         cajaSinFractura.SetActive(false);
         cajaConFractura.SetActive(true);
 
+        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+
         puntoContacto = Vector3.down;
         for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
         {
             rigidsBoxFracture[i].isKinematic = false;
             rigidsBoxFracture[i].GetComponent<MeshCollider>().enabled = true;
+
                 
-            rigidsBoxFracture[i].AddExplosionForce(force, puntoContacto, 300);
+            rigidsBoxFracture[i].AddExplosionForce(100, puntoContacto, 100);
                 
         }
 

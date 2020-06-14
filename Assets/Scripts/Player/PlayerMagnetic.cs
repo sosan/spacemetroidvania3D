@@ -50,24 +50,34 @@ public class PlayerMagnetic : MonoBehaviour
 
     private void DesAnclarPlayer(InputAction.CallbackContext obj)
     {
-        playerMovement.isMagnetic = false;
-        
-        Quaternion rotTemp = Quaternion.AngleAxis(0, Vector3.forward);
-        rigid.rotation = rotTemp;
-        rigid.useGravity = true;
+        playerMovement.gravedadFX.Stop();
 
+        if (playerMovement.isMagnetic == true)
+        { 
+            playerMovement.isMagnetic = false;
+        
+            Quaternion rotTemp = Quaternion.AngleAxis(0, Vector3.forward);
+            rigid.rotation = rotTemp;
+            rigid.useGravity = true;
+            
+
+        
+        }
+
+        
     }
 
     private void AnclarPlayer(InputAction.CallbackContext obj)
     {
 
-        
+# if UNITY_EDITOR
+        print("PULSADO G. COLLIDEWITHMAGNETIC=" + isCollideWithMagnetic + " tipoEsquina=" + tipoEsquina);
+# endif
+        playerMovement.gravedadFX.Play();
 
         if (isCollideWithMagnetic == true)
         { 
             playerMovement.isMagnetic = true;
-            
-            print("PULSADO G. COLLIDEWITHMAGNETIC=" + isCollideWithMagnetic + " tipoEsquina=" + tipoEsquina);
 
             switch (tipoEsquina)
             {
@@ -77,6 +87,8 @@ public class PlayerMagnetic : MonoBehaviour
                 case TipoEsquina.derechaAbajo: DerechaAbajo(); break;
 
             }
+
+            
 
         }
        
@@ -88,12 +100,6 @@ public class PlayerMagnetic : MonoBehaviour
     {
         
     }
-
-    void Update()
-    {
-        
-    }
-
     
 
     private void FixedUpdate()

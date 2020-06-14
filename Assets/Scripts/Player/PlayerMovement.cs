@@ -171,6 +171,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public ParticleSystem muerteRobot = null;
     [SerializeField] public ParticleSystem muerteRobotExterior = null;
 
+    [Header("Gravedad FX")]
+    [SerializeField] public ParticleSystem gravedadFX = null;
+
     [Header("Polvo Tocar Suelo FX")]
     [SerializeField] private ParticleSystem polvoRobot = null;
 
@@ -696,7 +699,9 @@ public class PlayerMovement : MonoBehaviour
     private void IzquierdaAbajo()
     { 
 
+# if UNITY_EDITOR
         print("movimiento arriba - abajo");
+# endif
         rigid.useGravity = false;
         float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
         Vector3 directionRigid = new Vector3(rigid.position.x, rigid.position.y + moveX, rigid.position.z);
@@ -707,7 +712,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void IzquierdaArriba()
     { 
+# if UNITY_EDITOR
         print("movimiento izquierda - derecha");
+# endif
         rigid.useGravity = true;
         float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
         Vector3 directionRigid = new Vector3(rigid.position.x + moveX, rigid.position.y , rigid.position.z);

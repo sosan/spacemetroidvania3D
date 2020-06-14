@@ -55,9 +55,9 @@ public class BoxEsquinasManager : MonoBehaviour
         
         if (other.CompareTag("CajaCollider") == true)
         { 
-
+# if UNITY_EDITOR
             print("BOX ESQUINAS - tag=" + other.tag  +  " name=" + other.name  + " tipoesquina=" + tipoEsquina);
-
+# endif
             playerMagnetic.isCollideWithMagnetic = true;
             
             playerMagnetic.tipoEsquina = tipoEsquina;
@@ -87,12 +87,14 @@ public class BoxEsquinasManager : MonoBehaviour
     {
         if (other.CompareTag("CajaCollider") == true)
         { 
-            if (tipoEsquina == TipoEsquina.derechaAbajo)
-            { 
-                playerMagnetic.isCollideWithMagnetic = false;
+            playerMagnetic.isCollideWithMagnetic = false;
+
+            //if (tipoEsquina == TipoEsquina.derechaAbajo)
+            //{ 
+                
 
             
-            }
+            //}
 
             
         }

@@ -23,8 +23,9 @@ public class FinTerreno : MonoBehaviour
     private async void OnTriggerEnter(Collider other)
     {
 
+# if UNITY_EDITOR
         print("other.tag=" + other.tag + " name=" + other.name);
-
+#endif
         if (other.CompareTag("Player"))
         { 
                     
@@ -66,7 +67,7 @@ public class FinTerreno : MonoBehaviour
 
         }
 
-        if (other.CompareTag("CajaSuelo") == true)
+        if (other.CompareTag("CajaSuelo") == true || other.CompareTag("CajaSuelta") == true) 
         { 
 
             await UniTask.Delay(TimeSpan.FromMilliseconds(700));
