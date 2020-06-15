@@ -189,6 +189,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem[] particulaGiro = null;
     [SerializeField] private ParticleSystemRenderer[] particulaGiroRender = null;
 
+    [Header("Impulsores")]
+    [SerializeField] private Transform impulsores = null;
+    [SerializeField] private Vector3 impulsoresPosOriginal = Vector3.zero;
 
     public bool isUsedGancho = false;
     public bool isPlayerFalling = false;
@@ -396,13 +399,13 @@ public class PlayerMovement : MonoBehaviour
     {
 
         if (isTeleporting == true) return;
-        if (isSwinging == true) return;
-        
 
         if (inputActions != null)
         { 
             inputMovement = inputActions.PlayerMovement.mover.ReadValue<Vector2>();
         }
+
+        if (isSwinging == true) return;
 
 
         if (inputMovement.x != 0f)
@@ -500,6 +503,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("yVelocity", rigid.velocity.y);
         anim.SetBool("isWallSliding", isWallSliding);
         anim.SetBool("attack1", isAttacking);
+        anim.SetBool("isSwinging", isSwinging);
 
     }
 
@@ -574,7 +578,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ApplyMovement()
+    private async void ApplyMovement()
     {
 
 # if UNITY_EDITOR
@@ -606,7 +610,13 @@ public class PlayerMovement : MonoBehaviour
                     perpendicularDirection = new Vector2(-playerToHookDirection.y, playerToHookDirection.x);
                     var leftPerpPos = (Vector2)this.transform.position - perpendicularDirection * -2f;
                     //Debug.DrawLine(transform.position, leftPerpPos, Color.green, 0f);
-                    var force = perpendicularDirection * 10f;
+                    var force = perpendicularDirection * 2f;
+
+                    impulsores.rotation = Quaternion.Euler(
+                        impulsores.rotation.eulerAngles.x - 30f,
+                        impulsores.rotation.eulerAngles.y,
+                        impulsores.rotation.eulerAngles.z
+                        );
                     
                     rigid.AddForce(force, ForceMode.Force);
 
@@ -616,11 +626,22 @@ public class PlayerMovement : MonoBehaviour
                     perpendicularDirection = new Vector2(playerToHookDirection.y, -playerToHookDirection.x);
                     var rightPerpPos = (Vector2)transform.position + perpendicularDirection * 2f;
                     //Debug.DrawLine(transform.position, rightPerpPos, Color.black, 0f);
-                    var force = perpendicularDirection * 10f;
+                    var force = perpendicularDirection * 2f;
                     
+                    impulsores.rotation = Quaternion.Euler(
+                        impulsores.rotation.eulerAngles.x + 30f,
+                        impulsores.rotation.eulerAngles.y,
+                        impulsores.rotation.eulerAngles.z
+                        );
+                    
+
                     rigid.AddForce(force, ForceMode.Force);
 
                 }
+
+                await UniTask.Delay(1000);
+                impulsores.rotation = Quaternion.Euler(impulsoresPosOriginal);
+                    
 
             
             }

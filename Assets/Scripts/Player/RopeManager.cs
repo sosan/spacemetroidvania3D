@@ -364,97 +364,6 @@ public class RopeManager : MonoBehaviour
         else
         { 
         
-    //        int numHits = Physics.RaycastNonAlloc(player.transform.position, destinoPos, hitsResultados, ropeMaxCastDistance, ropeLayerMask);
-
-        
-    //        if (numHits > 0)
-    //        { 
-    //            for (ushort i = 0; i < hitsResultados.Length; i++)
-    //            { 
-    //                //if (hitsResultados[i] == null) continue;
-
-    //#if UNITY_EDITOR
-    //                print("impulso" + playerMovement.isFacingRight + " dest.x="+ destinoPos.x + " name=" + hitsResultados[i].transform.name);
-    //#endif
-    //                punteroAnim.Play("puntero_clicked");
-    //                playerMovement.EnableFlip();
-    ////                if(playerMovement.isFacingRight == true)
-    ////                { 
-
-    ////                    if (destinoPos.x < 0)
-    ////                    { 
-    ////#if UNITY_EDITOR
-    ////                        print("pa la izquierda");
-    ////#endif
-    ////                        rigid.AddRelativeForce(new Vector2(-10, 30f), ForceMode.Impulse);
-                       
-    ////                        playerMovement.Flip();
-                    
-    ////                    }
-    ////                    else
-    ////                    {
-    ////#if UNITY_EDITOR
-    ////                        print("pa la derecha");
-    ////#endif
-    ////                        rigid.AddRelativeForce(new Vector2(10, 30f), ForceMode.Impulse);
-    ////                        playerMovement.Flip();
-
-
-    ////                    }
-
-                    
-    ////                }
-    ////                else
-    ////                { 
-    ////                    if (destinoPos.x < 0)
-    ////                    { 
-    ////#if UNITY_EDITOR
-    ////                        print("pa la izquierda");
-    ////#endif
-    ////                        rigid.AddRelativeForce(new Vector2(-10, 30f), ForceMode.Impulse);
-    ////                        playerMovement.Flip();
-                    
-    ////                    }
-    ////                    else
-    ////                    {
-    ////#if UNITY_EDITOR
-    ////                        print("pa la derecha");
-    ////#endif
-    ////                        rigid.AddRelativeForce(new Vector2(10, 30f), ForceMode.Impulse);
-    ////                        playerMovement.Flip();
-
-
-    ////                    }
-                
-    ////                }
-                
-    //                //await UniTask.Delay(TimeSpan.FromMilliseconds(200));
-
-                
-    //                //isColliding = false;
-    //                //ropeAttached = true;
-    //                //encontrado = true;
-    //                //ropeRenderer.SetPosition(0, player.transform.position);
-    //                //ropeRenderer.SetPosition(1, hitsResultados[i].point);
-
-    //                //ropeHingeAnchorRb.transform.position = hitsResultados[i].point;
-    //                //ropePositions.Add(hitsResultados[i].point);
-    //                //playerMovement.ropeHook = hitsResultados[i].point;
-    //                //wrapPointsLookup.Add(hitsResultados[i].point, 0);
-
-    //                //ropeJoint.projectionDistance = Vector2.Distance(player.transform.position, hitsResultados[i].point); //distance
-    //                //ropeJoint.enableCollision = true;
-    //                //ropeHingeAnchorSprite.enabled = true;
-    //                ////await UniTask.Delay(1000);
-    //                ////rigid.velocity = Vector2.zero;
-    //                ////rigid.drag = 0.3f;
-    //                //playerMovement.isSwinging = true;
-
-
-    //            }   
-
-    //        }
-        
         }
 
         
@@ -466,7 +375,6 @@ public class RopeManager : MonoBehaviour
             
             ropeRenderer.enabled = false;
             ropeAttached = false;
-            //ropeJoint.enableCollision = false;
             
         }
 
@@ -597,7 +505,6 @@ public class RopeManager : MonoBehaviour
     {
 
         playerMovement.isSwinging = false;
-        //ropeJoint.enableCollision = false;
         ropeAttached = false;
         
         ropeRenderer.positionCount = 2;
