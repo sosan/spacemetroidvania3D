@@ -53,6 +53,7 @@ namespace ModuloEscritura.EscrituraTextMeshPro
 
         public static void RegisterStandardTokenizer()
         {
+
             foreach (var pair in standardTokenizer)
             {
                 TextTokenizer.RegisterTokenizer(pair.Key, pair.Value);

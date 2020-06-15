@@ -331,7 +331,7 @@ MonoBehaviour:
   viewRange: 7
   attackCd: 1
   damage: 100
-  initialHealth: 5
+  initialHealth: 2
   _canMove: 1
   aiNavigationType: 0
   attackDistance: 2.5
@@ -360,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444529002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.04, y: -0.3, z: 0}
+  m_LocalPosition: {x: 12.46, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1925980415}
@@ -528,7 +528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087175717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.43, y: -25.19, z: 0}
+  m_LocalPosition: {x: 83.43, y: -27.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1905426461}
@@ -1305,7 +1305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534502925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.24, y: -55.844, z: -0.1}
+  m_LocalPosition: {x: 6.24, y: -80.596, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 295571719}
@@ -1337,7 +1337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744916350}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071065, w: 0.7071071}
-  m_LocalPosition: {x: -3.02, y: -0, z: 0}
+  m_LocalPosition: {x: -3.32, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1878123654}
@@ -1397,7 +1397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778790299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.75, y: -0.3, z: 0}
+  m_LocalPosition: {x: 34.97, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1925980415}
@@ -1489,7 +1489,7 @@ MonoBehaviour:
   viewRange: 8
   attackCd: 1.5
   damage: 100
-  initialHealth: 5
+  initialHealth: 1
   _canMove: 1
   aiNavigationType: 1
   weaponI: {fileID: 1155837639}

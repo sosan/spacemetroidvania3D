@@ -51,6 +51,7 @@ public class PlayerMagnetic : MonoBehaviour
     private void DesAnclarPlayer(InputAction.CallbackContext obj)
     {
         playerMovement.gravedadFX.Stop();
+        tipoEsquina = TipoEsquina.ninguna;
 
         if (playerMovement.isMagnetic == true)
         { 
@@ -59,6 +60,8 @@ public class PlayerMagnetic : MonoBehaviour
             Quaternion rotTemp = Quaternion.AngleAxis(0, Vector3.forward);
             rigid.rotation = rotTemp;
             rigid.useGravity = true;
+
+
             
 
         
@@ -87,7 +90,7 @@ public class PlayerMagnetic : MonoBehaviour
                 case TipoEsquina.derechaAbajo: DerechaAbajo(); break;
 
             }
-
+            
             
 
         }

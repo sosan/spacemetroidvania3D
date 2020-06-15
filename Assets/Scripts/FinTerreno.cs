@@ -33,6 +33,12 @@ public class FinTerreno : MonoBehaviour
             if (player == null) return;
             if (player.isPlayerFalling == true) return;
 
+            if (player.ropeManager.isPresaSelected == true)
+            { 
+                player.ropeManager.QuitarGarfioColisionadoHueco();
+            
+            }
+
             player.isPlayerFalling = true;
 			player.canMove = false;
             player.rigid.useGravity = true;

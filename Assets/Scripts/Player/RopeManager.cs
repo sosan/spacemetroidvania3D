@@ -142,6 +142,12 @@ public class RopeManager : MonoBehaviour
     private void Presionado_Q(InputAction.CallbackContext obj)
     {
 
+        QuitarGarfio();
+    }
+
+    public void QuitarGarfio()
+    { 
+    
         if (isPresaSelected == true && ropeAttached == true)
         {
 
@@ -149,7 +155,7 @@ public class RopeManager : MonoBehaviour
 
             camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.82f;
             ropeJoint.connectedBody = null;
-
+            playerMovement.isSwinging = false;
             
             
             ropeJoint = null;
@@ -177,17 +183,46 @@ public class RopeManager : MonoBehaviour
 
         }
 
+    
+    }
+
+    public void QuitarGarfioColisionadoHueco()
+    { 
+
+        if (isPresaSelected == true && ropeAttached == true)
+        {
+
+            if (ropeJoint == null) return;
+
+            camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.82f;
+            ropeJoint.connectedBody = null;
+
+            
+            
+            ropeJoint = null;
+            
+            rigid.constraints = RigidbodyConstraints.FreezeRotation;
+
+            presaEscalada = null;
+            isPresaSelected = false;
+            isColliding = false;
+            ropeAttached = false;
+            ropeRenderer.enabled = false;
+            playerMovement.isSwinging = false;
+
+        }
+    
     }
 
 
     private void Presionado_E(InputAction.CallbackContext obj)
     {
     
-        if (isPresaSelected == true && ropeAttached == false)
-        { 
-        
+        if (isPresaSelected == true && ropeAttached == false && playerMovement.isBoxTaken == false)
+        {
+#if UNITY_EDITOR        
             print("pulsado E desde Ropemanager");
-            
+#endif            
             Vector3 facingDirection = Vector3.zero;
             facingDirection = presaEscaladaPosition - player.transform.position;
 
@@ -273,49 +308,33 @@ public class RopeManager : MonoBehaviour
                 if (ropeJoint != null)
                 { 
                     ropeRenderer.enabled = true;
+                    
                     camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.66f;
 
                     float x = 0;
                     if(playerMovement.isFacingRight == true)
                     {
                         x = 10;
-                        //if (destinoPos.x >= 0)
-                        //{ 
-                            
-                        //}
-                        //else if (destinoPos.x < 0)
-                        //{
-
-                        //    x = -10;
-
-                        //}
-
+                       
                     }
                     else
                     { 
                         x = -10;
-                        // if (destinoPos.x >= 0)
-                        //{ 
-                            
-                        //}
-                        //else if (destinoPos.x < 0)
-                        //{
-
-                        //    x = 10;
-
-                        //}
+                       
                     
                     }
 
                     playerMovement.isUsedGancho = true;
+                    playerMovement.propulsion.Play();
                     rigid.AddForce(new Vector3(x, 15f, 0), ForceMode.Impulse);
                     await UniTask.Delay(TimeSpan.FromMilliseconds(300));
 
+                    playerMovement.isSwinging = true;
                     rigid.drag = 0;
                     rigid.constraints = RigidbodyConstraints.None;
                     ropeJoint.connectedBody = rigid;
                     ropeJoint.autoConfigureConnectedAnchor = true;
-                
+                    playerMovement.propulsion.Stop();
                     Vector3 coordHit = hit.point;
                     coordHit.x += 1;
 
@@ -332,7 +351,7 @@ public class RopeManager : MonoBehaviour
                     //await UniTask.Delay(1000);
                     //rigid.velocity = Vector2.zero;
                     //rigid.drag = 0.3f;
-                    playerMovement.isSwinging = true;
+                    //playerMovement.isSwinging = true;
             
                 }
             }

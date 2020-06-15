@@ -93,6 +93,8 @@ public class CharlaManager : MonoBehaviour
 
     private void Awake()
     {
+
+
         TextTokenizer.RegisterDefaultTokenizer();
         inputActions = new Controles();
         inputActions.PlayerMovement.activar.performed += SiguienteCharla;

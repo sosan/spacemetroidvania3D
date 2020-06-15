@@ -12,8 +12,14 @@ namespace ModuloEscritura.EscrituraTextMeshPro
         static Dictionary<string, ITokenizer> tokenizerTable = new Dictionary<string, ITokenizer>();
 
         public static void RegisterTokenizer(string tagName, ITokenizer tokenizer)
-        {
-            tokenizerTable.Add(tagName, tokenizer);
+        { 
+
+            if (tokenizerTable.ContainsKey(tagName) == false)
+            { 
+                tokenizerTable.Add(tagName, tokenizer);
+            }
+
+            
         }
 
         public static List<IToken> Tokenize(string text)

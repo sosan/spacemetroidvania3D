@@ -84,8 +84,8 @@ public class DroneAI : Enemy
 
     override protected void Chase()
     {
-        weaponD.transform.rotation = Quaternion.LookRotation((PlayerMovement.instancePlayer.transform.position + (Vector3.up * 2.25f)) - weaponPivot.transform.position, Vector3.up);
-        weaponI.transform.rotation = Quaternion.LookRotation((PlayerMovement.instancePlayer.transform.position + (Vector3.up * 2.25f)) - weaponPivot.transform.position, Vector3.up);
+        weaponD.transform.rotation = Quaternion.LookRotation((PlayerMovement.instancePlayer.transform.position + (Vector3.up)) - weaponPivot.transform.position, Vector3.up);
+        weaponI.transform.rotation = Quaternion.LookRotation((PlayerMovement.instancePlayer.transform.position + (Vector3.up)) - weaponPivot.transform.position, Vector3.up);
         base.Chase();
     }
 

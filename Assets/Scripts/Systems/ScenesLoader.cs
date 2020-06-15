@@ -42,6 +42,7 @@ public class ScenesLoader
         switch (loadProperties.loadType)
         {
             case LoadType.SingleScene:
+                scenesToLoadAmount = 1;
                 switch (loadProperties.loadBy)
                 {
                     case LoadBy.Index:
@@ -59,8 +60,6 @@ public class ScenesLoader
                     default:
                         break;
                 }
-                scenesToLoadAmount = 1;
-                scenesLoadedComplete = new List<bool>(scenesToLoadAmount);
                 break;
             case LoadType.MultiScenes:
                 switch (loadProperties.loadBy)

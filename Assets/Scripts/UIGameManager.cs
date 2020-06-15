@@ -87,13 +87,14 @@ public class UIGameManager : MonoBehaviour
     public void ClickedRetryYes()
     { 
         
-        sceneLoader.GoToSigleSceneByName("Testing_jl_3D");
+        isPaused = false;
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("testing_mg");
 
     
     }
     public void ClickedRetryNo()
     { 
-        
         
         ClickedMenuPrincipal();
     
@@ -101,9 +102,10 @@ public class UIGameManager : MonoBehaviour
 
 
     public void ClickedMenuPrincipal()
-    { 
-    
-        sceneLoader.GoToSigleSceneByName("MainMenu");
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
     public void ClickedSalirJuego()

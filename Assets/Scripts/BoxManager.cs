@@ -14,7 +14,7 @@ public class BoxManager : MonoBehaviour
     [Header("Cajas")]
     [SerializeField] private GameObject cajaSinFractura = null;
     [SerializeField] private GameObject cajaConFractura = null;
-    
+    [SerializeField] private BoxCollider colliderCajasFin = null;
 
 
     [SerializeField] public bool isUnbreakeable = false;
@@ -161,7 +161,7 @@ public class BoxManager : MonoBehaviour
             if (isUnbreakeable == true) return;
             if (isBroken == true) return;
 
-            print(collision.contacts[0].point);
+            //print(collision.contacts[0].point);
             DestruirBoxPorAtaque(collision.contacts[0].point);
 
            
@@ -184,6 +184,7 @@ public class BoxManager : MonoBehaviour
         cajaConFractura.SetActive(true);
 
         colliderBox.enabled = false;
+        colliderCajasFin.enabled = false;
 
         for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
         {
@@ -223,6 +224,8 @@ public class BoxManager : MonoBehaviour
         //rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         rigid.constraints = RigidbodyConstraints.None;
         puntoContacto = this.gameObject.transform.position;
+
+        colliderCajasFin.enabled = false;
 
         var arribaRigid = rigid.GetComponent<FixedJoint>();
         if (arribaRigid != null)

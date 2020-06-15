@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Managers")]
     [SerializeField] private PlayerAfterImagePool imagePool = null;
     [SerializeField] private GameLogic gameLogic = null;
-    [SerializeField] private RopeManager ropeManager = null;
+    [SerializeField] public RopeManager ropeManager = null;
     [SerializeField] private PlayerMagnetic playerMagnetic = null;
     [SerializeField] private UIGameManager uIGameManager = null;
 
@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public TransitionManager transition = null;
 
     [Header("Propulsion FX")]
-    [SerializeField] private ParticleSystem propulsion = null;
+    [SerializeField] public ParticleSystem propulsion = null;
 
     [Header("Barras Propulsion")]
     [SerializeField] private Image barraPropulsionBackground = null;
@@ -576,17 +576,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        //print(" isSwinging=" + isSwinging + " canMove=" + canMove + " knowck=" +knockback );
+
+# if UNITY_EDITOR
+        print(" isSwinging=" + isSwinging + " canMove=" + canMove + " knowck=" + knockback);
+#endif
         if (isTeleporting == true) return;
         if (gameLogic.isInCharla == true) return;
 
 
         if (isSwinging == true)
         {
-
+# if UNITY_EDITOR
+            print(inputMovement.x);
+# endif
             if (inputMovement.x == 0)
             { 
-            
+                
                 rigid.drag = 0.5f;            
             }
             else
@@ -735,7 +740,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void DerechaAbajo()
     { 
-    
+        //rigid.useGravity = false;
+        //float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
+        //Vector3 directionRigid = new Vector3(rigid.position.x, rigid.position.y + moveX, rigid.position.z);
+        //rigid.MovePosition(directionRigid);
     
     }
 
@@ -823,6 +831,9 @@ public class PlayerMovement : MonoBehaviour
         if (robotCurrentHealth <= 0)
         { 
             robotCurrentHealth = 0;
+            barraVidaBackground.fillAmount = 0;
+            uIGameManager.ShowGameOver();
+            return;
         
         }
 
