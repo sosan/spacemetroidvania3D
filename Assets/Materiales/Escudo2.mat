@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Escudo2
   m_Shader: {fileID: 4800000, guid: 0d6f3c3f65fa2fd4f87073568fb2011e, type: 3}
-  m_ShaderKeywords: _ENABLEDISTORTION_ON _ENABLEPULSATION_ON _INVERTMAINTEXTURE_ON
-    _INVERTSECONDARYTEXTURE_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEDISTORTION_ON _ENABLEPULSATION_ON
+    _INVERTMAINTEXTURE_ON _INVERTSECONDARYTEXTURE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

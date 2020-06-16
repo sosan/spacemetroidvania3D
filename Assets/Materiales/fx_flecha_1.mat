@@ -8,25 +8,35 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fx_flecha_1
-  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHAPREMULTIPLY_ON _MAINSCROLLROTATE_SCROLL
+    _SECONDARYSCROLLROTATE_SCROLL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsAlpha:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 1.2, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -35,7 +45,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Distortion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 4349779dfa819a743beb3ee271d38153, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissivecities:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FalloffTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlipBookTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LookupSunset:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -43,7 +73,31 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4349779dfa819a743beb3ee271d38153, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Maintex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Maintexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MotionVectors:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noisetex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,24 +109,143 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Secondarytex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Secondarytexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _watermask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Arcrange: 360
+    - _Backgroundborderopacity: 1
+    - _Backgroundborderradialwidth: 0
+    - _Backgroundbordertangentwidth: 0
+    - _Backgroundopacity: 1
+    - _Bias: 0
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Citiesoffset: 0
+    - _Cloudspeed: 1
+    - _Cutoff: 1
+    - _Desaturation: 0
     - _DetailNormalMapScale: 1
-    - _DstBlend: 0
+    - _DistortionAmount: 0.0075
+    - _DistortionPower: 0
+    - _Distortionscale: 1
+    - _Distortionspeed: 1
+    - _DstBlend: 10
+    - _Enabledistortion: 0
+    - _Enablenoise: 0
+    - _Enablepulsation: 0
+    - _Extraroughness: 0
+    - _Fillpercentage: 0.25
+    - _FinalPower: 0
+    - _GammaLinear: 1
+    - _Globalopacity: 1
+    - _Gloss: 0.81
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Innerfresnelintensity: 0
+    - _Invertmaintex: 0
+    - _Invertmaintexture: 0
+    - _Invertnoisetex: 0
+    - _Invertsecondarytex: 0
+    - _Invertsecondarytexture: 0
+    - _Mainbarborderopacity: 1
+    - _Mainborderradialwidth: 0
+    - _Mainbordertangentwidth: 0
+    - _Mainscrollrotate: 0
+    - _Maintexcontrast: 1
+    - _Maintexopacity: 1
+    - _Maintexrotationspeed: 1
+    - _Maintextureintensity: 1
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 3
+    - _Noiseintensity: 5
+    - _Noisescale: 50
+    - _Noisetexcontrast: 1
+    - _Normalintensity: 0
     - _OcclusionStrength: 1
+    - _OpacityBoost: 2
+    - _Outerfresnelintensity: 1
     - _Parallax: 0.02
+    - _Power: 2
+    - _Pulseamplitude: 1
+    - _Pulsefrequency: 3
+    - _Pulseoffset: 0
+    - _Pulsephase: 0
+    - _Radius: 0.3
+    - _Rotation: 0
+    - _RotatorAng: 1
+    - _RowCount: 8
+    - _Scale: 1
+    - _Secondaryscrollrotate: 0
+    - _Secondarytexcontrast: 1
+    - _Secondarytexopacity: 1
+    - _Secondarytexrotationspeed: 1
+    - _Secondarytextureintensity: 1
+    - _Sharpennoise: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 10
     - _SrcBlend: 1
+    - _Subatmosphereglobalintensity: 1
+    - _Subatmospherepower: 5
+    - _TessMax: 25
+    - _TessMin: 10
+    - _TessPhongStrength: 0.5
+    - _TessValue: 1
     - _UVSec: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
+    - _Albedocolor: {r: 1, g: 1, b: 1, a: 0}
+    - _AmbiantLightcontrol: {r: 0, g: 0, b: 0, a: 0}
+    - _Backgroundbordercolor: {r: 0.2132353, g: 0.6418865, b: 1, a: 1}
+    - _Backgroundfillcolor: {r: 0.2132353, g: 0.6418865, b: 1, a: 1}
+    - _Barmaxcolor: {r: 0, g: 1, b: 0.08965516, a: 1}
+    - _Barmincolor: {r: 1, g: 0, b: 0, a: 1}
+    - _Barsecondarymaxcolor: {r: 0, g: 1, b: 0.08965516, a: 1}
+    - _Barsecondarymincolor: {r: 1, g: 0, b: 0, a: 1}
+    - _Bordermaxcolor: {r: 0, g: 1, b: 0.08965516, a: 1}
+    - _Bordermincolor: {r: 1, g: 0, b: 0, a: 1}
+    - _Citiescolor: {r: 1, g: 0.815662, b: 0.55899996, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Edgecolor: {r: 0.7941176, g: 0.1284602, b: 0.1284602, a: 0.666}
     - _EmisColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.15304625, g: 1, b: 0, a: 1}
+    - _FinalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Maincolor: {r: 0.7941176, g: 0.1284602, b: 0.1284602, a: 0.666}
+    - _Mainpanningspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Maintexoffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Maintexscrollspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Maintextiling: {r: 0, g: 0, b: 0, a: 0}
+    - _Noisespeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Noisetexoffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Noisetexspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Noisetextiling: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondarycolor: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondarypanningspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondarytexoffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondarytexscrollspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondarytextiling: {r: 0, g: 0, b: 0, a: 0}
+    - _Subatmospherecolor: {r: 1, g: 1, b: 1, a: 0}
+    - _cloudscolor: {r: 1, g: 1, b: 1, a: 0.547}
