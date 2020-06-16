@@ -40,6 +40,7 @@ public class FinTerreno : MonoBehaviour
             }
 
             player.isPlayerFalling = true;
+            player.isTeleporting = true;
 			player.canMove = false;
             player.rigid.useGravity = true;
             player.rigid.velocity = Vector3.zero;
@@ -62,7 +63,7 @@ public class FinTerreno : MonoBehaviour
             await UniTask.Delay(800);
 
             player.gameObject.SetActive(false);
-            player.isTeleporting = true;
+            
             player.transform.position = positionReinicioPlayer.position;
             
 

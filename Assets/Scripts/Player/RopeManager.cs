@@ -17,6 +17,7 @@ public class RopeManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject player = null;
     [SerializeField] private GameObject garfio = null;
+
     
     [Header("Camara")]
     [SerializeField] private CinemachineVirtualCamera camaraVirtual = null;
@@ -78,6 +79,12 @@ public class RopeManager : MonoBehaviour
 
     [Header("Presa")]
     [SerializeField] private PresaEscaladaManager presaEscalada = null;
+
+
+    [Header("Flechas")]
+    [SerializeField] private ParticleSystem flechaIzq = null;
+    [SerializeField] private ParticleSystem flechaDer = null;
+
 
 
     [SerializeField] private UIGameManager uIGameManager = null;
@@ -153,6 +160,9 @@ public class RopeManager : MonoBehaviour
 
             if (ropeJoint == null) return;
 
+            flechaDer.Stop();
+            flechaIzq.Stop();
+
             camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.82f;
             ropeJoint.connectedBody = null;
             playerMovement.isSwinging = false;
@@ -200,7 +210,8 @@ public class RopeManager : MonoBehaviour
             camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.82f;
             ropeJoint.connectedBody = null;
 
-            
+            flechaDer.Stop();
+            flechaIzq.Stop();
             
             ropeJoint = null;
             
@@ -332,6 +343,9 @@ public class RopeManager : MonoBehaviour
                     await UniTask.Delay(TimeSpan.FromMilliseconds(300));
 
                     playerMovement.isSwinging = true;
+
+                    flechaDer.Play();
+                    flechaIzq.Play();
                     //rigid.drag = 0;
                     rigid.constraints = RigidbodyConstraints.None;
                     ropeJoint.connectedBody = rigid;

@@ -496,7 +496,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        
+        if (isTeleporting == true) return;
 
         anim.SetBool("isWalking", isWalking);
         anim.SetBool("isGrounded", isGrounded);
