@@ -70,13 +70,17 @@ public class BajarEscalera : MonoBehaviour
 
                     player.transform.rotation = Quaternion.Euler(derecha);
                     playerMovement.isFacingRight = true;
+                    playerMovement.facingDirection = 1;
                 }
                 else
                 {
-                     player.transform.rotation = Quaternion.Euler(izquierda);
+                    player.transform.rotation = Quaternion.Euler(izquierda);
                     playerMovement.isFacingRight = false;
+                    playerMovement.facingDirection = -1;
 
                 }
+
+                
 
 
                 playerMovement.transition.ExitTransition();

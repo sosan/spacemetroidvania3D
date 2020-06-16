@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float knockbackDuration = 0.2f;
 
     private int amountOfJumpsLeft;
-    private int facingDirection = 1;
+    public int facingDirection = 1;
     private int lastWallJumpDirection;
 
     public bool isFacingRight = true;

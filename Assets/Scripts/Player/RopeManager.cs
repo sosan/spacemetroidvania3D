@@ -159,17 +159,20 @@ public class RopeManager : MonoBehaviour
             
             
             ropeJoint = null;
+            rigid.velocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
+
+
             if (playerMovement.isFacingRight == true)
             { 
                 player.transform.rotation = Quaternion.identity;
-
-                rigid.AddForce(new Vector3(5f, 2f, 0), ForceMode.Impulse);
+                rigid.AddForce(new Vector3(2f, -4f, 0), ForceMode.Impulse);
             }
             else
             { 
                 player.transform.rotation = Quaternion.Euler(0, 180, 0);
 
-                rigid.AddForce(new Vector3(-5f, 2f, 0), ForceMode.Impulse);
+                rigid.AddForce(new Vector3(-2f, -4f, 0), ForceMode.Impulse);
             
             }
             
@@ -311,26 +314,25 @@ public class RopeManager : MonoBehaviour
                     
                     camaraVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.66f;
 
-                    float x = 0;
-                    if(playerMovement.isFacingRight == true)
+                    Vector3 direction = Vector3.zero;
+
+                    if (playerMovement.isFacingRight == true)
                     {
-                        x = 10;
-                       
+                        direction = new Vector3(10f, 15f, 0);
                     }
                     else
-                    { 
-                        x = -10;
-                       
-                    
+                    {
+                        direction = new Vector3(-10f, 15f, 0);
                     }
 
                     playerMovement.isUsedGancho = true;
                     playerMovement.propulsion.Play();
-                    rigid.AddForce(new Vector3(x, 15f, 0), ForceMode.Impulse);
+                    
+                    rigid.AddForce(direction, ForceMode.Impulse);
                     await UniTask.Delay(TimeSpan.FromMilliseconds(300));
 
                     playerMovement.isSwinging = true;
-                    rigid.drag = 0;
+                    //rigid.drag = 0;
                     rigid.constraints = RigidbodyConstraints.None;
                     ropeJoint.connectedBody = rigid;
                     ropeJoint.autoConfigureConnectedAnchor = true;
