@@ -77,15 +77,15 @@ public class SceneDependencies : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < ScenesLoader.loadedScenes.Count; i++)
-        {
-            Debug.Log(ScenesLoader.loadedScenes[i] + " currently loaded.");
-        }
+        //for (int i = 0; i < ScenesLoader.loadedScenes.Count; i++)
+        //{
+        //    Debug.Log(ScenesLoader.loadedScenes[i] + " currently loaded.");
+        //}
 
-        for (int i = 0; i < scenesToLoad.Count; i++)
-        {
-            Debug.Log(scenesToLoad[i] + " need to be loaded.");
-        }
+        //for (int i = 0; i < scenesToLoad.Count; i++)
+        //{
+        //    Debug.Log(scenesToLoad[i] + " need to be loaded.");
+        //}
 
         if (scenesToLoad.Count != 0)
         {

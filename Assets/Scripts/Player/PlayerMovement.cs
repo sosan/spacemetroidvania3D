@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    [SerializeField] public Vector2 ropeHook;
+    [SerializeField] public Vector3 ropeHook;
     [SerializeField] public bool isSwinging;
 
     //private float movementXDirection;
@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public TransitionManager transition = null;
 
     [Header("Propulsion FX")]
-    [SerializeField] public ParticleSystem propulsion = null;
+    
 
     [Header("Barras Propulsion")]
     [SerializeField] private Image barraPropulsionBackground = null;
@@ -192,6 +192,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Impulsores")]
     [SerializeField] private Transform impulsores = null;
     [SerializeField] private Vector3 impulsoresPosOriginal = Vector3.zero;
+    [SerializeField] public ParticleSystem propulsion = null;
+
+
 
     public bool isUsedGancho = false;
     public bool isPlayerFalling = false;
@@ -601,47 +604,50 @@ public class PlayerMovement : MonoBehaviour
             else
             { 
             
-                var playerToHookDirection = (ropeHook - (Vector2)this.transform.position).normalized;
+                var playerToHookDirection = (ropeHook - this.transform.position).normalized;
 
-                Vector2 perpendicularDirection = Vector2.zero;
-                rigid.drag = 0;
+                Vector3 perpendicularDirection = Vector3.zero;
+                //rigid.drag = 0;
                 if (inputMovement.x < 0)
                 {
-                    perpendicularDirection = new Vector2(-playerToHookDirection.y, playerToHookDirection.x);
-                    var leftPerpPos = (Vector2)this.transform.position - perpendicularDirection * -2f;
+                    perpendicularDirection = new Vector3(-playerToHookDirection.y, playerToHookDirection.x, playerToHookDirection.z);
+                    Vector3 leftPerpPos = this.transform.position - perpendicularDirection * -2f;
                     //Debug.DrawLine(transform.position, leftPerpPos, Color.green, 0f);
-                    var force = perpendicularDirection * 2f;
+                    Vector3 force = perpendicularDirection * 2f;
 
                     impulsores.rotation = Quaternion.Euler(
-                        impulsores.rotation.eulerAngles.x - 30f,
+                        30f,
                         impulsores.rotation.eulerAngles.y,
                         impulsores.rotation.eulerAngles.z
                         );
+
+
+                    propulsion.Play();
                     
                     rigid.AddForce(force, ForceMode.Force);
 
                 }
                 else if (inputMovement.x > 0)
                 {
-                    perpendicularDirection = new Vector2(playerToHookDirection.y, -playerToHookDirection.x);
-                    var rightPerpPos = (Vector2)transform.position + perpendicularDirection * 2f;
+                    perpendicularDirection = new Vector3(playerToHookDirection.y, -playerToHookDirection.x, playerToHookDirection.z);
+                    Vector3 rightPerpPos = transform.position + perpendicularDirection * 2f;
                     //Debug.DrawLine(transform.position, rightPerpPos, Color.black, 0f);
-                    var force = perpendicularDirection * 2f;
+                    Vector3 force = perpendicularDirection * 2f;
                     
                     impulsores.rotation = Quaternion.Euler(
-                        impulsores.rotation.eulerAngles.x + 30f,
+                        -30,
                         impulsores.rotation.eulerAngles.y,
                         impulsores.rotation.eulerAngles.z
                         );
                     
-
+                    propulsion.Play();
                     rigid.AddForce(force, ForceMode.Force);
 
                 }
 
                 await UniTask.Delay(1000);
                 impulsores.rotation = Quaternion.Euler(impulsoresPosOriginal);
-                    
+                propulsion.Stop();
 
             
             }
@@ -1170,7 +1176,7 @@ public class PlayerMovement : MonoBehaviour
         
 
 # if UNITY_EDITOR
-        print("apretado boton shift. istouching=" + isTouchingBox + " isboxtaken=" + isBoxCollide);
+        print("apretado boton shift. istouching=" + isTouchingBox + " isBoxCollide=" + isBoxCollide);
 # endif
 
         if (isTouchingBox == false)
@@ -1188,10 +1194,10 @@ public class PlayerMovement : MonoBehaviour
 
         isPresedTaken = true;
       
-
+        //apretado boton shift. isTouchingBox=True isBoxCollide=False objectCollide.name=cajas
 
         if (isBoxCollide == true) return;
-        if (objectCollide is null == true) return;
+        if (objectCollide == null) return;
         if (objectCollide.GetComponent<BoxManager>().isMovable == false) return;
             
 
@@ -1202,6 +1208,22 @@ public class PlayerMovement : MonoBehaviour
         if (objectCollide != null)
         { 
             objectCollide.transform.parent = parentObjectTaken;
+            Transform linkedBox = objectCollide.GetComponent<BoxManager>().linkedBox;
+
+            if (linkedBox != null)
+            { 
+                linkedBox.transform.parent = parentObjectTaken;
+                
+                var tempBox = linkedBox.GetComponent<BoxManager>();
+                if (tempBox != null)
+                { 
+                    tempBox.transform.parent = parentObjectTaken; //linkedBox.transform;
+                    
+                
+                }
+                
+            }
+
             //objectCollide.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
 
@@ -1230,6 +1252,29 @@ public class PlayerMovement : MonoBehaviour
             if (objectCollide != null)
             {
                 objectCollide.transform.parent = parentScene;
+
+                var box1 = objectCollide.GetComponent<BoxManager>();
+                if (box1 != null)
+                { 
+                    var tempBox2 = box1.linkedBox;
+                    if (tempBox2 != null)
+                    { 
+                        var box2 = tempBox2.GetComponent<BoxManager>();
+
+                        if (box2 != null)
+                        { 
+                            box2.transform.parent = parentScene;
+                        
+                        }
+                    
+                    
+                    }
+
+                    box1.transform.parent = parentScene;
+
+                
+                }
+
             }
 
             box.transform.parent = parentScene;

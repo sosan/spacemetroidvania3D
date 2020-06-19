@@ -116,11 +116,10 @@ public class ScenesLoader
         asyncOps.Add(SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive));
         int opIndex = asyncOps.Count - 1;
         asyncOps[opIndex].allowSceneActivation = false;
-        Debug.Log("opIndex = " + opIndex + " | " + name);
         while (!asyncOps[opIndex].isDone)
         {
             //Output the current progress
-            Debug.Log("Loading progress (" + name + "): " + (asyncOps[opIndex].progress * 100) + "%");
+            //Debug.Log("Loading progress (" + name + "): " + (asyncOps[opIndex].progress * 100) + "%");
 
             // Check if the load has finished
             if (asyncOps[opIndex].progress >= 0.9f)
@@ -143,7 +142,7 @@ public class ScenesLoader
         while (!asyncOps[opIndex].isDone)
         {
             //Output the current progress
-            Debug.Log("Loading progress: " + (asyncOps[opIndex].progress * 100) + "%");
+            //Debug.Log("Loading progress: " + (asyncOps[opIndex].progress * 100) + "%");
 
             // Check if the load has finished
             if (asyncOps[opIndex].progress >= 0.9f)
@@ -165,7 +164,7 @@ public class ScenesLoader
         while (!asyncOps[opIndex].isDone)
         {
             //Output the current progress
-            Debug.Log("Loading progress: " + (asyncOps[opIndex].progress * 100) + "%");
+            //Debug.Log("Loading progress: " + (asyncOps[opIndex].progress * 100) + "%");
 
             // Check if the load has finished
             if (asyncOps[opIndex].progress >= 0.9f)
@@ -207,10 +206,9 @@ public class ScenesLoader
 
     public static void UnloadPreviousScenes()
     {
-        Debug.Log("UnloadPreviousScenes");
         for (int i = 0; i < loadedScenes.Count; i++)
         {
-            Debug.Log(loadedScenes[i]);
+            //Debug.Log(loadedScenes[i]);
             SceneManager.UnloadSceneAsync(loadedScenes[i]);
         }
         Resources.UnloadUnusedAssets();

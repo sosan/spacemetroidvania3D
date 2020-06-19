@@ -7,6 +7,7 @@ using System;
 using ControlesGlobal;
 using ModuloEscritura.EscrituraTextMeshPro;
 using UnityEngine.InputSystem;
+using Unity.RemoteConfig;
 
 
 public class GameLogic : MonoBehaviour
@@ -93,14 +94,51 @@ public class GameLogic : MonoBehaviour
     private bool isShowingEscapePanel = false;
 
 
+    public struct userAttributes
+    {
+
+    }
+
+    public struct appAttributes
+    {
+
+    }
+
+
     private void Awake()
     {
         
+        ConfigManager.FetchCompleted += ApplyRemoteSettings;
+
+        ConfigManager.SetEnvironmentID("6e6486d7-889e-40a1-882e-f37c4a7aa3a9");
+        ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
+
+
+
         durationInitNivel = animJuego.GetClip("inicio_nivel").length * 1000;
 
     }
 
-   
+    private void ApplyRemoteSettings(ConfigResponse obj)
+    {
+        
+        print("obj=" + obj.requestOrigin);
+        switch (obj.requestOrigin)
+        {
+            case ConfigOrigin.Default:
+                Debug.Log("No settings loaded this session; using default values for " + this + ".");
+            break;
+            case ConfigOrigin.Cached:
+                Debug.Log("No settings loaded this session; using cached values from a previous session for " + this + ".");
+            break;
+            case ConfigOrigin.Remote:
+                Debug.Log("New settings loaded this session; update values accordingly for " + this + ".");
+                isDebug = ConfigManager.appConfig.GetBool("isDebug");
+            break;
+        }
+
+
+    }
 
     private void Start()
     {

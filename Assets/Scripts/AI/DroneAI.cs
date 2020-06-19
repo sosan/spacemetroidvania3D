@@ -23,7 +23,7 @@ public class DroneAI : Enemy
     private Quaternion _weaponIInitialRotation;
 
     bool _arm1 = false;
-    public string assignmentId;
+    private string _assignmentId;
 
     public struct userAttributes
     {
@@ -57,17 +57,17 @@ public class DroneAI : Enemy
         switch (configResponse.requestOrigin)
         {
             case ConfigOrigin.Default:
-                Debug.Log("No settings loaded this session; using default values.");
+                Debug.Log("No settings loaded this session; using default values for " + this + ".");
                 break;
             case ConfigOrigin.Cached:
-                Debug.Log("No settings loaded this session; using cached values from a previous session.");
+                Debug.Log("No settings loaded this session; using cached values from a previous session for " + this + ".");
                 break;
             case ConfigOrigin.Remote:
-                Debug.Log("New settings loaded this session; update values accordingly.");
+                Debug.Log("New settings loaded this session; update values accordingly for " + this + ".");
                 viewRange = ConfigManager.appConfig.GetFloat("droneViewRange");
                 attackCd = ConfigManager.appConfig.GetFloat("droneAttackCD");
                 damage = ConfigManager.appConfig.GetInt("droneDamage");
-                assignmentId = ConfigManager.appConfig.assignmentID;
+                _assignmentId = ConfigManager.appConfig.assignmentID;
                 break;
         }
     }

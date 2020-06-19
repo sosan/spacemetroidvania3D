@@ -19,45 +19,49 @@ MonoBehaviour:
   addedRulesIDs: []
   updatedRulesIDs: []
   deletedRulesIDs: []
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"07a371e5-d5dd-429d-88a8-d7f9f09e08d2\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"caa58407-6d82-4c5d-89ab-72c880ea4b10\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"midrobotViewRange\",\r\n      \"type\":
     \"float\",\r\n      \"value\": 7.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"19a253dd-d338-473e-a3ce-91ce9571fc9b\"\r\n    },\r\n   
+    {\r\n      \"entityId\": \"11db1b27-2543-4abf-b6ac-d45cfc48253f\"\r\n    },\r\n   
     \"rs\": {\r\n      \"key\": \"droneViewRange\",\r\n      \"type\": \"float\",\r\n     
     \"value\": 8.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"8855248b-f2c2-4879-b560-9432f3f3b7c0\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"midrobotAttackDistance\",\r\n      \"value\": 2.0,\r\n      \"type\":
-    \"float\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"2ff6ecc7-6508-4a7a-83ba-5152c6110514\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"droneAttackCD\",\r\n      \"value\": 1.0,\r\n      \"type\": \"float\"\r\n   
-    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1ca2e9f6-7120-4e34-85ad-a6336e859409\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"midrobotAttackCD\",\r\n      \"value\":
-    1.0,\r\n      \"type\": \"float\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"f1100b98-c90e-4f5c-93ac-156d5dc3ff5e\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"midrobotDamage\",\r\n      \"value\": 100,\r\n     
-    \"type\": \"int\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"20ab223c-7c5b-4ccc-bdb2-83e35d60feec\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"droneDamage\",\r\n      \"value\": 200,\r\n      \"type\": \"int\"\r\n   
+    \"f50af75a-7701-4014-ae46-17c71bf36907\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"midrobotAttackDistance\",\r\n      \"type\": \"float\",\r\n      \"value\":
+    2.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f4f1383e-7f24-425e-a45e-17d73260d22b\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"droneAttackCD\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 1.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"6c1ea37f-ad85-4dc0-8c6f-3862e05143bb\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"midrobotAttackCD\",\r\n      \"type\": \"float\",\r\n      \"value\":
+    1.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"e18dbd60-61fd-46c2-99f0-54e86be6482f\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"midrobotDamage\",\r\n      \"type\":
+    \"int\",\r\n      \"value\": 100\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"1637a33b-05c1-4956-8adb-75cde3abd7ef\"\r\n    },\r\n   
+    \"rs\": {\r\n      \"key\": \"droneDamage\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 200\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"d78c0a20-a10c-492c-bbd4-8e714c71e616\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"isDebug\",\r\n      \"type\": \"bool\",\r\n      \"value\": false\r\n   
     }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"07a371e5-d5dd-429d-88a8-d7f9f09e08d2\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"caa58407-6d82-4c5d-89ab-72c880ea4b10\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"midrobotViewRange\",\r\n      \"type\":
     \"float\",\r\n      \"value\": 7.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"19a253dd-d338-473e-a3ce-91ce9571fc9b\"\r\n    },\r\n   
+    {\r\n      \"entityId\": \"11db1b27-2543-4abf-b6ac-d45cfc48253f\"\r\n    },\r\n   
     \"rs\": {\r\n      \"key\": \"droneViewRange\",\r\n      \"type\": \"float\",\r\n     
     \"value\": 8.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"8855248b-f2c2-4879-b560-9432f3f3b7c0\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"midrobotAttackDistance\",\r\n      \"value\": 2.0,\r\n      \"type\":
-    \"float\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"2ff6ecc7-6508-4a7a-83ba-5152c6110514\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"droneAttackCD\",\r\n      \"value\": 1.0,\r\n      \"type\": \"float\"\r\n   
-    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1ca2e9f6-7120-4e34-85ad-a6336e859409\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"midrobotAttackCD\",\r\n      \"value\":
-    1.0,\r\n      \"type\": \"float\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"f1100b98-c90e-4f5c-93ac-156d5dc3ff5e\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"midrobotDamage\",\r\n      \"value\": 100,\r\n     
-    \"type\": \"int\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"20ab223c-7c5b-4ccc-bdb2-83e35d60feec\"\r\n    },\r\n    \"rs\": {\r\n     
-    \"key\": \"droneDamage\",\r\n      \"value\": 200,\r\n      \"type\": \"int\"\r\n   
+    \"f50af75a-7701-4014-ae46-17c71bf36907\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"midrobotAttackDistance\",\r\n      \"type\": \"float\",\r\n      \"value\":
+    2.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f4f1383e-7f24-425e-a45e-17d73260d22b\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"droneAttackCD\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 1.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"6c1ea37f-ad85-4dc0-8c6f-3862e05143bb\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"midrobotAttackCD\",\r\n      \"type\": \"float\",\r\n      \"value\":
+    1.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"e18dbd60-61fd-46c2-99f0-54e86be6482f\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"midrobotDamage\",\r\n      \"type\":
+    \"int\",\r\n      \"value\": 100\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"1637a33b-05c1-4956-8adb-75cde3abd7ef\"\r\n    },\r\n   
+    \"rs\": {\r\n      \"key\": \"droneDamage\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 200\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"d78c0a20-a10c-492c-bbd4-8e714c71e616\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"isDebug\",\r\n      \"type\": \"bool\",\r\n      \"value\": false\r\n   
     }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"95be3491-6de4-4e7f-adec-9c1ff0ecfe5d\",\r\n   
     \"name\": \"Release\",\r\n    \"id\": \"6e6486d7-889e-40a1-882e-f37c4a7aa3a9\",\r\n   

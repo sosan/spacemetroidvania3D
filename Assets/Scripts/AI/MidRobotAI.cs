@@ -44,13 +44,13 @@ public class MidRobotAI : Enemy
         switch (configResponse.requestOrigin)
         {
             case ConfigOrigin.Default:
-                Debug.Log("No settings loaded this session; using default values.");
+                Debug.Log("No settings loaded this session; using default values for " + this + ".");
                 break;
             case ConfigOrigin.Cached:
-                Debug.Log("No settings loaded this session; using cached values from a previous session.");
+                Debug.Log("No settings loaded this session; using cached values from a previous session for " + this + ".");
                 break;
             case ConfigOrigin.Remote:
-                Debug.Log("New settings loaded this session; update values accordingly.");
+                Debug.Log("New settings loaded this session; update values accordingly for " + this + ".");
                 viewRange = ConfigManager.appConfig.GetFloat("midrobotViewRange");
                 attackDistance = ConfigManager.appConfig.GetFloat("midrobotAttackDistance");
                 attackCd = ConfigManager.appConfig.GetFloat("midrobotAttackCD");

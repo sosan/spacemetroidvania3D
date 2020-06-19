@@ -192,13 +192,6 @@ public abstract class Enemy : MonoBehaviour
             {
                 b = true;
             }
-            //List<Collider> c = new List<Collider>(); 
-            //for (int i = 0; i < hitInfo.Length; i++)
-            //{
-            //    c.Add(hitInfo[i].collider);
-            //}
-            //    b = CheckForCollider(PlayerMovement.instancePlayer.GetComponent<Collider>(), c);
-
         }
         return b;
     }

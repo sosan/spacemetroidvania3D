@@ -185,8 +185,18 @@ public class RopeManager : MonoBehaviour
                 rigid.AddForce(new Vector3(-2f, -4f, 0), ForceMode.Impulse);
             
             }
-            
+
             rigid.constraints = RigidbodyConstraints.FreezeRotation;
+            
+            playerMovement.giroPlayer.rotation = Quaternion.Euler(
+                    0,
+                    playerMovement.giroPlayer.localEulerAngles.y,
+                    playerMovement.giroPlayer.localEulerAngles.z
+            );
+
+            
+
+
 
             presaEscalada = null;
             isPresaSelected = false;
@@ -202,7 +212,7 @@ public class RopeManager : MonoBehaviour
     public void QuitarGarfioColisionadoHueco()
     { 
 
-        if (isPresaSelected == true && ropeAttached == true)
+        //if (isPresaSelected == true && ropeAttached == true)
         {
 
             if (ropeJoint == null) return;
@@ -214,6 +224,12 @@ public class RopeManager : MonoBehaviour
             flechaIzq.Stop();
             
             ropeJoint = null;
+
+            //playerMovement.giroPlayer.rotation = Quaternion.Euler(
+            //        0,
+            //        playerMovement.giroPlayer.localEulerAngles.y,
+            //        playerMovement.giroPlayer.localEulerAngles.z
+            //);
             
             rigid.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -232,7 +248,7 @@ public class RopeManager : MonoBehaviour
     private void Presionado_E(InputAction.CallbackContext obj)
     {
     
-        if (isPresaSelected == true && ropeAttached == false && playerMovement.isBoxTaken == false)
+        if (isPresaSelected == true && ropeAttached == false && playerMovement.isBoxTaken == false &&  playerMovement.isPlayerFalling == false)
         {
 #if UNITY_EDITOR        
             print("pulsado E desde Ropemanager");
@@ -316,7 +332,6 @@ public class RopeManager : MonoBehaviour
             { 
                 
                 //print("coliision" + hit.transform.name);
-                //SpringJoint ropeJoint = hit.transform.gameObject.AddComponent<SpringJoint>();
                 ropeJoint = hit.transform.GetComponent<HingeJoint>();
 
                 if (ropeJoint != null)
@@ -344,9 +359,15 @@ public class RopeManager : MonoBehaviour
 
                     playerMovement.isSwinging = true;
 
+                    //playerMovement.giroPlayer.rotation = Quaternion.Euler(
+                    //    30,
+                    //    playerMovement.giroPlayer.localEulerAngles.y,
+                    //    playerMovement.giroPlayer.localEulerAngles.z
+                    //);
+
+
                     flechaDer.Play();
                     flechaIzq.Play();
-                    //rigid.drag = 0;
                     rigid.constraints = RigidbodyConstraints.None;
                     ropeJoint.connectedBody = rigid;
                     ropeJoint.autoConfigureConnectedAnchor = true;
@@ -361,13 +382,8 @@ public class RopeManager : MonoBehaviour
                     ropeRenderer.SetPosition(0, player.transform.position);
                     ropeRenderer.SetPosition(1, coordHit);
                     
-                    //ropePositions.Add(coordHit);
                     playerMovement.ropeHook = coordHit;
                     
-                    //await UniTask.Delay(1000);
-                    //rigid.velocity = Vector2.zero;
-                    //rigid.drag = 0.3f;
-                    //playerMovement.isSwinging = true;
             
                 }
             }
@@ -377,12 +393,6 @@ public class RopeManager : MonoBehaviour
         
         
         }
-        else
-        { 
-        
-        }
-
-        
 
         isGanchoClicked = false;
 

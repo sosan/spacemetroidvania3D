@@ -19,6 +19,7 @@ using UnityEngine.UI;
 /// </remarks>
 public class UserReportingScript : MonoBehaviour
 {
+    [SerializeField] Attachables[] attachables;
     #region Constructors
 
     /// <summary>
@@ -231,7 +232,10 @@ public class UserReportingScript : MonoBehaviour
             }
 
             // Attachments
-            br.Attachments.Add(new UserReportAttachment("Sample Attachment.txt", "SampleAttachment.txt", "text/plain", System.Text.Encoding.UTF8.GetBytes("This is a sample attachment.")));
+            for (int i = 0; i < attachables.Length; i++)
+            {
+                br.Attachments.Add(attachables[i].GetUserReportAttachment() /*new UserReportAttachment("Sample Attachment.txt", "SampleAttachment.txt", "text/plain", System.Text.Encoding.UTF8.GetBytes("This is a sample attachment."))*/);
+            }
 
             // Dimensions
             string platform = "Unknown";
@@ -463,4 +467,16 @@ public class UserReportingScript : MonoBehaviour
     }
 
     #endregion
+}
+
+[Serializable]
+public class Attachables
+{
+    [SerializeField] string name = "Sample Attachment.txt";
+    [SerializeField] string fileName = "SampleAttachment.txt";
+    [SerializeField] string contentType = "text/plain";
+    [SerializeField] string message = "This is a sample attachment.";
+    //byte[] data = System.Text.Encoding.UTF8.GetBytes(message);
+
+    public UserReportAttachment GetUserReportAttachment() { return new UserReportAttachment(name, fileName, contentType, System.Text.Encoding.UTF8.GetBytes(message)); }
 }

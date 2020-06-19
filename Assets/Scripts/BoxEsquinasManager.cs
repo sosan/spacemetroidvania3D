@@ -56,7 +56,7 @@ public class BoxEsquinasManager : MonoBehaviour
         if (other.CompareTag("CajaCollider") == true)
         { 
 # if UNITY_EDITOR
-            print("BOX ESQUINAS - tag=" + other.tag  +  " name=" + other.name  + " tipoesquina=" + tipoEsquina);
+            //print("BOX ESQUINAS - tag=" + other.tag  +  " name=" + other.name  + " tipoesquina=" + tipoEsquina);
 # endif
             playerMagnetic.isCollideWithMagnetic = true;
             

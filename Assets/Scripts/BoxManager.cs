@@ -31,12 +31,14 @@ public class BoxManager : MonoBehaviour
 
     private Vector3 puntoContacto = Vector3.zero;
 
-    [SerializeField] private Rigidbody rigid = null;
+    [SerializeField] public Rigidbody rigid = null;
     [SerializeField] private Collider colliderBox = null;
     [SerializeField] private Rigidbody[] rigidsBoxFracture = null;
 
     [SerializeField] public ushort pisosActuales = 0;
     [SerializeField] private const ushort pisosMaximo = 2;
+
+    [SerializeField] public Transform linkedBox = null;
 
 
     // Start is called before the first frame update
@@ -64,8 +66,10 @@ public class BoxManager : MonoBehaviour
     
     }
 
-    public async void AnimBox(GameObject boxAbajo, Rigidbody arribaRigid)
+    public async void AnimBox(GameObject boxAbajo, Rigidbody arribaRigid, bool isFacingRight)
     {
+
+        print("boxabajo.nam=" + boxAbajo.gameObject.name + " arribarigid=" + arribaRigid.gameObject.name);
 
         playerMovement.CancelarObjetoCogido();
 
@@ -77,15 +81,32 @@ public class BoxManager : MonoBehaviour
         clip.wrapMode = WrapMode.Once;
 
         Keyframe[] keysX = new Keyframe[4];
-
+        
+        
         float x = this.transform.position.x;
         float y = this.transform.position.y;
         float z = this.transform.position.z;
 
         keysX[0] = new Keyframe(0f, x );
         keysX[1] = new Keyframe(0.07f, x );
-        keysX[2] = new Keyframe(0.19f, x += 1.21f );
-        keysX[3] = new Keyframe(0.30f, x += 0.63f /*1.26f*/);
+
+        if (isFacingRight == true)
+        { 
+            
+            keysX[2] = new Keyframe(0.19f, x += 1.21f);
+            keysX[3] = new Keyframe(0.30f, x += 0.63f);
+
+        
+        }
+        else
+        { 
+            keysX[2] = new Keyframe(0.19f, x -= 1.21f);
+            keysX[3] = new Keyframe(0.30f, x -= 0.63f);
+
+        
+        }
+
+        
 
         Keyframe[] keysY = new Keyframe[4];
 
@@ -115,21 +136,43 @@ public class BoxManager : MonoBehaviour
 
         rigid.useGravity = true;
 
-        rigid.constraints = RigidbodyConstraints.FreezeRotation;
-
-        await UniTask.Delay(500);
-        //rigid.useGravity = false;
-        FixedJoint juntaFija = boxAbajo.AddComponent<FixedJoint>();
-        juntaFija.connectedBody = arribaRigid;
+        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
 
         
 
-        this.GetComponentInChildren<BoxEsquinasManager>().izquierdaArriba.enabled = false;
-        this.GetComponentInChildren<BoxEsquinasManager>().derechaArriba.enabled = false;
-        arribaRigid.GetComponentInChildren<BoxEsquinasManager>().izquierdaAbajo.enabled = false;
-        arribaRigid.GetComponentInChildren<BoxEsquinasManager>().derechaAbajo.enabled = false;
+        await UniTask.Delay(500);
+        
 
+        boxAbajo.GetComponent<BoxManager>().linkedBox = arribaRigid.transform;
+        
+        { 
+            //FixedJoint juntaFija = boxAbajo.AddComponent<FixedJoint>();
+            //juntaFija.connectedBody = arribaRigid;
+
+        
+        }
+        
+        rigid.useGravity = false;
+        arribaRigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+
+        BoxEsquinasManager boxEsquinaTemp = boxAbajo.GetComponentInChildren<BoxEsquinasManager>();
+        if (boxEsquinaTemp != null)
+        {
+            boxEsquinaTemp.izquierdaArriba.enabled = false;
+            boxEsquinaTemp.derechaArriba.enabled = false;
+        
+        }
+
+        boxEsquinaTemp = arribaRigid.GetComponentInChildren<BoxEsquinasManager>();
+        if (boxEsquinaTemp != null)
+        {
+            boxEsquinaTemp.izquierdaAbajo.enabled = false;
+            boxEsquinaTemp.derechaAbajo.enabled = false;
+        
+        }
+        
     }
+
     
 
     private void OnCollisionEnter(Collision collision)
@@ -144,13 +187,15 @@ public class BoxManager : MonoBehaviour
             if (playerMovement.isTouchingBox == true && playerMovement.objectCollide == collision.transform.gameObject && playerMovement.isPresedTaken == true)
             { 
                 if (pisosActuales >= pisosMaximo) return;
-                
-                
-                playerMovement.objectCollide.GetComponent<BoxManager>().AnimBox(this.gameObject, 
-                    collision.gameObject.GetComponent<Rigidbody>());
 
-                
-                
+
+                playerMovement.objectCollide.GetComponent<BoxManager>().AnimBox(this.gameObject,
+                    collision.gameObject.GetComponent<Rigidbody>(), playerMovement.isFacingRight);
+
+
+
+
+
 
             }
 
@@ -226,13 +271,17 @@ public class BoxManager : MonoBehaviour
         puntoContacto = this.gameObject.transform.position;
 
         colliderCajasFin.enabled = false;
+        rigid.useGravity = true;
+        
 
-        var arribaRigid = rigid.GetComponent<FixedJoint>();
-        if (arribaRigid != null)
+        //var arribaRigid = rigid.GetComponent<FixedJoint>();
+        
+        //if (arribaRigid != null)
+        if (linkedBox != null)
         { 
 
 
-            Rigidbody[] rigidBodiesFracture = arribaRigid.GetComponent<BoxManager>().rigidsBoxFracture;
+            Rigidbody[] rigidBodiesFracture = linkedBox.GetComponent<BoxManager>().rigidsBoxFracture;
 
             for (ushort i = 0; i < rigidsBoxFracture.Length; i++)
             {
