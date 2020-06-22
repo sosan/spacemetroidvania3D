@@ -7,8 +7,9 @@ using System;
 public class BoxManager : MonoBehaviour
 {
 
-
+    [Header("Managers")]
     [SerializeField] private PlayerMovement playerMovement = null;
+    [SerializeField] private PlayerActionCogerObjecto playerActionCogerObjecto = null;
     [SerializeField] private Animation anim = null;
 
     [Header("Cajas")]
@@ -71,7 +72,7 @@ public class BoxManager : MonoBehaviour
 
         print("boxabajo.nam=" + boxAbajo.gameObject.name + " arribarigid=" + arribaRigid.gameObject.name);
 
-        playerMovement.CancelarObjetoCogido();
+        playerMovement.playerActionCogerObjecto.CancelarObjetoCogido();
 
         pisosActuales++;
 
@@ -184,12 +185,13 @@ public class BoxManager : MonoBehaviour
 
         if (collision.transform.CompareTag("CajaSuelta") == true)
         { 
-            if (playerMovement.isTouchingBox == true && playerMovement.objectCollide == collision.transform.gameObject && playerMovement.isPresedTaken == true)
+            if (playerActionCogerObjecto. isTouchingBox == true && playerActionCogerObjecto.objectCollide == collision.transform.gameObject && 
+                playerActionCogerObjecto.isPresedTaken == true)
             { 
                 if (pisosActuales >= pisosMaximo) return;
 
 
-                playerMovement.objectCollide.GetComponent<BoxManager>().AnimBox(this.gameObject,
+                playerActionCogerObjecto.objectCollide.GetComponent<BoxManager>().AnimBox(this.gameObject,
                     collision.gameObject.GetComponent<Rigidbody>(), playerMovement.isFacingRight);
 
 
@@ -343,8 +345,8 @@ public class BoxManager : MonoBehaviour
         if (other.CompareTag("CajaCollider") == true)
         {
 
-            playerMovement.isTouchingBox = true;
-            playerMovement.objectCollide = this.gameObject;
+            playerActionCogerObjecto.isTouchingBox = true;
+            playerActionCogerObjecto.objectCollide = this.gameObject;
 
         }
 

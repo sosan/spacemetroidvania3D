@@ -71,23 +71,23 @@ public class CharlaManager : MonoBehaviour
     private float durationCharlaSalida = 0.85f;
     
 
-    private void OnEnable()
-    {
+    //private void OnEnable()
+    //{
 
-        inputActions.PlayerMovement.activar.Enable();
-        inputActions.PlayerMovement.testeo_activar.Enable();
+    //    inputActions.PlayerMovement.activar.Enable();
+    //    inputActions.PlayerMovement.testeo_activar.Enable();
 
-    }
+    //}
 
 
-    private void OnDisable()
-    {
+    //private void OnDisable()
+    //{
 
-        inputActions.PlayerMovement.activar.Disable();
-        inputActions.PlayerMovement.testeo_activar.Disable();
+    //    inputActions.PlayerMovement.activar.Disable();
+    //    inputActions.PlayerMovement.testeo_activar.Disable();
         
 
-    }
+    //}
 
 
 
@@ -96,10 +96,10 @@ public class CharlaManager : MonoBehaviour
 
 
         TextTokenizer.RegisterDefaultTokenizer();
-        inputActions = new Controles();
-        inputActions.PlayerMovement.activar.performed += SiguienteCharla;
+        //inputActions = new Controles();
+        //inputActions.PlayerMovement.activar.performed += SiguienteCharla;
         //inputActions.PlayerMovement.testeo_activar.performed += NuevaCharla;
-        inputActions.PlayerMovement.activar.Enable();
+        //inputActions.PlayerMovement.activar.Enable();
         //inputActions.PlayerMovement.testeo_activar.Enable();
 
         charlaPanel1.SetActive(false);
@@ -300,12 +300,12 @@ public class CharlaManager : MonoBehaviour
     
     }
 
-    public void SiguienteCharla(InputAction.CallbackContext obj)
-    { 
+    //public void SiguienteCharla(InputAction.CallbackContext obj)
+    //{ 
 
-        Clicked_SiguienteCharla();
+    //    Clicked_SiguienteCharla();
     
-    }
+    //}
 
 
 

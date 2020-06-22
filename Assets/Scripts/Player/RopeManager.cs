@@ -34,6 +34,7 @@ public class RopeManager : MonoBehaviour
 
     [SerializeField] private float offset = 1.4f;
     [SerializeField] public PlayerMovement playerMovement = null;
+    [SerializeField] public PlayerActionCogerObjecto playerActionCogerObjecto = null;
     [SerializeField] public Vector3 presaEscaladaPosition = Vector3.zero;
     [SerializeField] public bool isPresaSelected = false;
     [SerializeField] private Rigidbody rigid = null;
@@ -248,7 +249,8 @@ public class RopeManager : MonoBehaviour
     private void Presionado_E(InputAction.CallbackContext obj)
     {
     
-        if (isPresaSelected == true && ropeAttached == false && playerMovement.isBoxTaken == false &&  playerMovement.isPlayerFalling == false)
+        if (isPresaSelected == true && ropeAttached == false && playerActionCogerObjecto.isBoxTaken == false && 
+            playerMovement.isPlayerFalling == false)
         {
 #if UNITY_EDITOR        
             print("pulsado E desde Ropemanager");

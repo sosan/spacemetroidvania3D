@@ -58,7 +58,7 @@ public class FinTerreno : MonoBehaviour
                 player.muerteRobotExterior.Play();
             }
 
-            player.CancelarObjetoCogido();
+            player.playerActionCogerObjecto.CancelarObjetoCogido();
 
             await UniTask.Delay(TimeSpan.FromMilliseconds(800));
 

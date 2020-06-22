@@ -23,18 +23,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public RopeManager ropeManager = null;
     [SerializeField] private PlayerMagnetic playerMagnetic = null;
     [SerializeField] private UIGameManager uIGameManager = null;
+    [SerializeField] private PlayerInputs playerInputs = null;
+    [SerializeField] public PlayerActionCogerObjecto playerActionCogerObjecto = null;
+    
 
 
 
     [SerializeField] public Vector3 ropeHook;
     [SerializeField] public bool isSwinging;
 
-    //private float movementXDirection;
-    //private float movementYDirection;
-    public Vector2 inputMovement = Vector2.zero;
+    //public Vector2 inputMovement = Vector2.zero;
 
-    private float jumpTimer;
-    [SerializeField] private float restJump = 0.01f;
+    //private float jumpTimer;
+    //[SerializeField] private float restJump = 0.01f;
     private float turnTimer;
     private float wallJumpTimer;
     private float dashTimeLeft;
@@ -49,17 +50,17 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isFacingRight = true;
     public bool isWalking = false;
-    public bool isAttacking = false;
+    //public bool isAttacking = false;
     public bool isGrounded = false;
     public bool isTouchingWall = false;
-    public bool isTouchingBox = false;
-    public bool isBoxCollide = false;
-    public bool isBoxTaken = false;
+    //public bool isTouchingBox = false;
+    //public bool isBoxCollide = false;
+    //public bool isBoxTaken = false;
     private bool isWallSliding = false;
     public bool isCompletedRotation = false;
-    private bool canNormalJump;
+    //private bool canNormalJump;
     private bool canWallJump;
-    private bool isAttemptingToJump;
+    //private bool isAttemptingToJump;
     private bool checkJumpMultiplier;
     public bool canMove;
    
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private int amountOfJumps = 2;
     [SerializeField] public float movementSpeed = 9.0f;
-    [SerializeField] private float jumpForce = 21.0f;
+    //[SerializeField] private float jumpForce = 21.0f;
     [SerializeField] private bool saltarconFuerzas = false;
     [SerializeField] private float groundCheckRadius = 0.3f;
     [SerializeField] private float wallCheckDistance = 0.65f; 
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float variableJumpHeightMultiplier = 0.5f;
     [SerializeField] private float wallHopForce = 10f;
     [SerializeField] private float wallJumpForce = 30f;
-    [SerializeField] private float jumpTimerSet = 4f;
+    //[SerializeField] private float jumpTimerSet = 4f;
     [SerializeField] private float turnTimerSet = 0.1f;
     [SerializeField] private float wallJumpTimerSet = 0.5f;
     [SerializeField] private float ledgeClimbXOffset1 = 0.3f;
@@ -130,11 +131,11 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit[] resultsTouchWall = new RaycastHit[25];
     private RaycastHit[] resultsLedge = new RaycastHit[25];
     
-    private RaycastHit[] resultsTouchBox = new RaycastHit[25];
+    //private RaycastHit[] resultsTouchBox = new RaycastHit[25];
 
 
     private Vector3 m_Velocity = Vector3.zero;
-    private float progressColor = 0;
+    //private float progressColor = 0;
 
 
     
@@ -147,14 +148,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Transicion")]
     [SerializeField] public TransitionManager transition = null;
 
-    [Header("Propulsion FX")]
+    //[Header("Propulsion FX")]
     
 
-    [Header("Barras Propulsion")]
-    [SerializeField] private Image barraPropulsionBackground = null;
-    [SerializeField] private Image barraPropulsionFront = null;
-    [SerializeField] private Color colorinicial = Color.white;
-    [SerializeField] private Color colordestino = Color.white;
+    //[Header("Barras Propulsion")]
+    //[SerializeField] private Image barraPropulsionBackground = null;
+    //[SerializeField] private Image barraPropulsionFront = null;
+    //[SerializeField] private Color colorinicial = Color.white;
+    //[SerializeField] private Color colordestino = Color.white;
 
     [Header("Barras Salud")]
     [SerializeField] private Image barraVidaBackground = null;
@@ -199,30 +200,30 @@ public class PlayerMovement : MonoBehaviour
     public bool isUsedGancho = false;
     public bool isPlayerFalling = false;
 
-    private void OnEnable()
-    {
+    //private void OnEnable()
+    //{
 
-        inputActions.PlayerMovement.mover.Enable();
-        inputActions.PlayerMovement.saltar.Enable();
-        inputActions.PlayerMovement.activar.Enable();
-        inputActions.PlayerMovement.flamete.Enable();
-        inputActions.PlayerMovement.ataque.Enable();
-        inputActions.PlayerMovement.cogerObjeto.Enable();
+    //    inputActions.PlayerMovement.mover.Enable();
+    //    inputActions.PlayerMovement.saltar.Enable();
+    //    inputActions.PlayerMovement.activar.Enable();
+    //    inputActions.PlayerMovement.flamete.Enable();
+    //    inputActions.PlayerMovement.ataque.Enable();
+    //    inputActions.PlayerMovement.cogerObjeto.Enable();
 
-    }
+    //}
 
 
-    private void OnDisable()
-    {
+    //private void OnDisable()
+    //{
 
-        inputActions.PlayerMovement.mover.Disable();
-        inputActions.PlayerMovement.saltar.Disable();
-        inputActions.PlayerMovement.activar.Disable();
-        inputActions.PlayerMovement.flamete.Disable();
-        inputActions.PlayerMovement.ataque.Disable();
-        inputActions.PlayerMovement.cogerObjeto.Disable();
+    //    inputActions.PlayerMovement.mover.Disable();
+    //    inputActions.PlayerMovement.saltar.Disable();
+    //    inputActions.PlayerMovement.activar.Disable();
+    //    inputActions.PlayerMovement.flamete.Disable();
+    //    inputActions.PlayerMovement.ataque.Disable();
+    //    inputActions.PlayerMovement.cogerObjeto.Disable();
 
-    }
+    //}
 
 
     private void Awake()
@@ -244,32 +245,32 @@ public class PlayerMovement : MonoBehaviour
 
 
         isDoorTriggerEnter = false;
-        inputActions = new Controles();
-        inputActions.PlayerMovement.mover.canceled += PararPlayer;
+        //inputActions = new Controles();
+        //inputActions.PlayerMovement.mover.canceled += PararPlayer;
         
-        inputActions.PlayerMovement.saltar.started += Saltar_started;
-        inputActions.PlayerMovement.saltar.canceled += Saltar_canceled;
+        //inputActions.PlayerMovement.saltar.started += Saltar_started;
+        //inputActions.PlayerMovement.saltar.canceled += Saltar_canceled;
         
-        inputActions.PlayerMovement.activar.performed += Presionado_E;
+        //inputActions.PlayerMovement.activar.performed += Presionado_E;
         
-        inputActions.PlayerMovement.flamete.performed += Flamete_performed;
-        inputActions.PlayerMovement.flamete.canceled += Flamete_canceled;
+        //inputActions.PlayerMovement.flamete.performed += Flamete_performed;
+        //inputActions.PlayerMovement.flamete.canceled += Flamete_canceled;
         
-        inputActions.PlayerMovement.ataque.started += Ataque_started;
-        inputActions.PlayerMovement.ataque.canceled += Ataque_canceled;
+        //inputActions.PlayerMovement.ataque.started += Ataque_started;
+        //inputActions.PlayerMovement.ataque.canceled += Ataque_canceled;
 
-        inputActions.PlayerMovement.cogerObjeto.started += CogerObjeto_started;
-        inputActions.PlayerMovement.cogerObjeto.canceled += CogerObjeto_canceled;
+        //inputActions.PlayerMovement.cogerObjeto.started += CogerObjeto_started;
+        //inputActions.PlayerMovement.cogerObjeto.canceled += CogerObjeto_canceled;
 
 
-        inputActions.PlayerMovement.mover.Enable();
-        inputActions.PlayerMovement.saltar.Enable();
-        inputActions.PlayerMovement.activar.Enable();
-        inputActions.PlayerMovement.flamete.Enable();
-        inputActions.PlayerMovement.ataque.Enable();
-        inputActions.PlayerMovement.cogerObjeto.Enable();
+        //inputActions.PlayerMovement.mover.Enable();
+        //inputActions.PlayerMovement.saltar.Enable();
+        //inputActions.PlayerMovement.activar.Enable();
+        //inputActions.PlayerMovement.flamete.Enable();
+        //inputActions.PlayerMovement.ataque.Enable();
+        //inputActions.PlayerMovement.cogerObjeto.Enable();
 
-        jumpTimer = jumpTimerSet;
+        //jumpTimer = jumpTimerSet;
 
     }
 
@@ -281,7 +282,7 @@ public class PlayerMovement : MonoBehaviour
         if (uIGameManager.isPaused == true) return;
 
         CheckMovementDirection();
-        UpdateAnimations();
+        //UpdateAnimations();
         //CheckJump(); 
         CheckDash();
         CheckKnockback();
@@ -371,47 +372,47 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void CheckIfCanJump()
-    {
+    //private void CheckIfCanJump()
+    //{
 
-        if (isSwinging == true) return;
+    //    if (isSwinging == true) return;
 
-        if(isGrounded && rigid.velocity.y <= 0.01f)
-        {
-            amountOfJumpsLeft = amountOfJumps;
-        }
+    //    if(isGrounded && rigid.velocity.y <= 0.01f)
+    //    {
+    //        amountOfJumpsLeft = amountOfJumps;
+    //    }
 
-        if (isTouchingWall)
-        {
-            checkJumpMultiplier = false;
-            canWallJump = true;
-        }
+    //    if (isTouchingWall)
+    //    {
+    //        checkJumpMultiplier = false;
+    //        canWallJump = true;
+    //    }
 
-        if(amountOfJumpsLeft <= 0)
-        {
-            canNormalJump = false;
-        }
-        else
-        {
-            canNormalJump = true;
-        }
+    //    if(amountOfJumpsLeft <= 0)
+    //    {
+    //        canNormalJump = false;
+    //    }
+    //    else
+    //    {
+    //        canNormalJump = true;
+    //    }
       
-    }
+    //}
 
     private void CheckMovementDirection()
     {
 
         if (isTeleporting == true) return;
 
-        if (inputActions != null)
-        { 
-            inputMovement = inputActions.PlayerMovement.mover.ReadValue<Vector2>();
-        }
+        //if (inputActions != null)
+        //{ 
+        //    inputMovement = inputActions.PlayerMovement.mover.ReadValue<Vector2>();
+        //}
 
         if (isSwinging == true) return;
 
 
-        if (inputMovement.x != 0f)
+        if (playerInputs.inputMovement.x != 0f)
         { 
             canMove = true;
             if (isGrounded)
@@ -431,12 +432,12 @@ public class PlayerMovement : MonoBehaviour
                     
                 }
 
-                if (isBoxTaken == true)
-                { 
+                if (playerActionCogerObjecto.isBoxTaken == true)
+                {
                     canMove = true;
-                    isWalking = true; 
-                    
-                    
+                    isWalking = true;
+
+
                 }
 
             }
@@ -451,7 +452,7 @@ public class PlayerMovement : MonoBehaviour
         { 
             canMove = true;
             isWalking = false;
-            inputMovement.x = 0;
+            playerInputs.inputMovement.x = 0;
             
         }
 
@@ -459,7 +460,7 @@ public class PlayerMovement : MonoBehaviour
         { 
         
             
-            if(!isGrounded && inputMovement.x != facingDirection)
+            if(!isGrounded && playerInputs.inputMovement.x != facingDirection)
             {
                 canMove = false;
                 canFlip = false;
@@ -471,11 +472,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (isFacingRight && inputMovement.x < 0)
+        if (isFacingRight && playerInputs.inputMovement.x < 0)
         {
             Flip();
         }
-        else if(!isFacingRight && inputMovement.x > 0)
+        else if(!isFacingRight && playerInputs.inputMovement.x > 0)
         {
             Flip();
         }
@@ -497,18 +498,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void UpdateAnimations()
-    {
-        if (isTeleporting == true) return;
-
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("yVelocity", rigid.velocity.y);
-        anim.SetBool("isWallSliding", isWallSliding);
-        anim.SetBool("attack1", isAttacking);
-        anim.SetBool("isSwinging", isSwinging);
-
-    }
+   
 
     private void AttemptToDash()
     {
@@ -557,29 +547,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void NormalJumpConFuerzas()
-    { 
-        if (canNormalJump)
-        {
+    //private void NormalJumpConFuerzas()
+    //{ 
+    //    if (canNormalJump)
+    //    {
 
-            Vector2 direction = Vector2.up * jumpForce;
-            rigid.AddRelativeForce(direction, ForceMode.Impulse);
+    //        Vector2 direction = Vector2.up * jumpForce;
+    //        rigid.AddRelativeForce(direction, ForceMode.Impulse);
            
-        }
+    //    }
     
-    }
+    //}
    
 
-    private void NormalJump()
-    {
+    //private void NormalJump()
+    //{
 
-        //print("Nornmaljump cannomrelajump=" + canNormalJump);
-        if (canNormalJump)
-        {
+    //    //print("Nornmaljump cannomrelajump=" + canNormalJump);
+    //    if (canNormalJump)
+    //    {
             
-            rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
-        }
-    }
+    //        rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
+    //    }
+    //}
 
     private async void ApplyMovement()
     {
@@ -594,9 +584,9 @@ public class PlayerMovement : MonoBehaviour
         if (isSwinging == true)
         {
 # if UNITY_EDITOR
-            print(inputMovement.x);
+            print(playerInputs.inputMovement.x);
 # endif
-            if (inputMovement.x == 0)
+            if (playerInputs.inputMovement.x == 0)
             { 
                 
                 rigid.drag = 0.5f;            
@@ -608,7 +598,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 perpendicularDirection = Vector3.zero;
                 //rigid.drag = 0;
-                if (inputMovement.x < 0)
+                if (playerInputs.inputMovement.x < 0)
                 {
                     perpendicularDirection = new Vector3(-playerToHookDirection.y, playerToHookDirection.x, playerToHookDirection.z);
                     Vector3 leftPerpPos = this.transform.position - perpendicularDirection * -2f;
@@ -627,7 +617,7 @@ public class PlayerMovement : MonoBehaviour
                     rigid.AddForce(force, ForceMode.Force);
 
                 }
-                else if (inputMovement.x > 0)
+                else if (playerInputs.inputMovement.x > 0)
                 {
                     perpendicularDirection = new Vector3(playerToHookDirection.y, -playerToHookDirection.x, playerToHookDirection.z);
                     Vector3 rightPerpPos = transform.position + perpendicularDirection * 2f;
@@ -683,13 +673,13 @@ public class PlayerMovement : MonoBehaviour
             
             }
 
-            if (isTouchingBox == true)
+            if (playerActionCogerObjecto.isTouchingBox == true)
             { 
                 
                 if (canMove == true)
                 { 
                     rigid.useGravity = true;
-                    float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
+                    float moveX = playerInputs.inputMovement.x * movementSpeed * Time.fixedDeltaTime;
                     Vector2 direction = new Vector2(rigid.position.x + moveX, rigid.position.y);
                     rigid.MovePosition(direction);
                     return;
@@ -704,7 +694,7 @@ public class PlayerMovement : MonoBehaviour
             
                 if(canMove && !knockback)
                 {
-                    float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
+                    float moveX = playerInputs.inputMovement.x * movementSpeed * Time.fixedDeltaTime;
                     //float moveY = movementYDirection * movementForceInAir * Time.fixedDeltaTime;
                     Vector2 direction = new Vector2(rigid.position.x + moveX, rigid.position.y);
                     rigid.MovePosition(direction);
@@ -738,7 +728,7 @@ public class PlayerMovement : MonoBehaviour
         print("movimiento arriba - abajo");
 # endif
         rigid.useGravity = false;
-        float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
+        float moveX = playerInputs.inputMovement.x * movementSpeed * Time.fixedDeltaTime;
         Vector3 directionRigid = new Vector3(rigid.position.x, rigid.position.y + moveX, rigid.position.z);
         rigid.MovePosition(directionRigid);
 
@@ -751,7 +741,7 @@ public class PlayerMovement : MonoBehaviour
         print("movimiento izquierda - derecha");
 # endif
         rigid.useGravity = true;
-        float moveX = inputMovement.x * movementSpeed * Time.fixedDeltaTime;
+        float moveX = playerInputs.inputMovement.x * movementSpeed * Time.fixedDeltaTime;
         Vector3 directionRigid = new Vector3(rigid.position.x + moveX, rigid.position.y , rigid.position.z);
         rigid.MovePosition(directionRigid);
        
@@ -821,26 +811,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public async void PlayerEntrar()
-    { 
+    //public async void PlayerEntrar()
+    //{ 
        
        
-        transition.EnterTransition();
-        await UniTask.Delay(600);
-        transition.ExitTransition();
-        await UniTask.Delay(150);
-        lastDoor.CloseDoor();
-        isInvulnerable = false;
-        isTeleporting = false;
+    //    transition.EnterTransition();
+    //    await UniTask.Delay(600);
+    //    transition.ExitTransition();
+    //    await UniTask.Delay(150);
+    //    lastDoor.CloseDoor();
+    //    isInvulnerable = false;
+    //    isTeleporting = false;
 
-        await UniTask.Delay(TimeSpan.FromMilliseconds(300));
-        lastDoor.SetTextOpenDoor();
+    //    await UniTask.Delay(TimeSpan.FromMilliseconds(300));
+    //    lastDoor.SetTextOpenDoor();
 
         
         
 
     
-    }
+    //}
 
     
     public void ResetHealth()
@@ -871,105 +861,105 @@ public class PlayerMovement : MonoBehaviour
     }
     
 
-    private void CheckJump()
-    {
+    //private void CheckJump()
+    //{
 
-        if (jumpTimer <= 1.5f)
-        { 
+    //    if (jumpTimer <= 1.5f)
+    //    { 
         
-            progressColor += Time.deltaTime / 0.2f;
-            barraPropulsionBackground.color = Color.Lerp(colorinicial, colordestino,  Mathf.PingPong(progressColor, Time.time ));
-            barraPropulsionFront.color = Color.Lerp(colorinicial, colordestino,  Mathf.PingPong(progressColor, Time.time ));
-            if (progressColor >= 1)
-            { 
-                progressColor = 0;
-            }
+    //        progressColor += Time.deltaTime / 0.2f;
+    //        barraPropulsionBackground.color = Color.Lerp(colorinicial, colordestino,  Mathf.PingPong(progressColor, Time.time ));
+    //        barraPropulsionFront.color = Color.Lerp(colorinicial, colordestino,  Mathf.PingPong(progressColor, Time.time ));
+    //        if (progressColor >= 1)
+    //        { 
+    //            progressColor = 0;
+    //        }
         
-        }
-        else
-        { 
-            progressColor = 0;
-            barraPropulsionBackground.color = colorinicial;
-            barraPropulsionFront.color = colorinicial;
+    //    }
+    //    else
+    //    { 
+    //        progressColor = 0;
+    //        barraPropulsionBackground.color = colorinicial;
+    //        barraPropulsionFront.color = colorinicial;
         
-        }
+    //    }
 
-        //print("isAttemptingToJump=" + isAttemptingToJump);
-        if (isAttemptingToJump == true)
-        {
+    //    //print("isAttemptingToJump=" + isAttemptingToJump);
+    //    if (isAttemptingToJump == true)
+    //    {
 
-            if (jumpTimer <= 0)
-            { 
-                propulsion.Stop();
-                return;
+    //        if (jumpTimer <= 0)
+    //        { 
+    //            propulsion.Stop();
+    //            return;
 
-            }
+    //        }
 
            
 
             
-            canNormalJump = true;
+    //        canNormalJump = true;
             
-            if (saltarconFuerzas == false)
-            { 
-                NormalJump();
+    //        if (saltarconFuerzas == false)
+    //        { 
+    //            NormalJump();
             
-            }
+    //        }
             
 
 
-            jumpTimer -= restJump;
+    //        jumpTimer -= restJump;
             
             
-            if (jumpTimer <= 0)
-            { 
-                jumpTimer = 0;
-                canNormalJump = false;
+    //        if (jumpTimer <= 0)
+    //        { 
+    //            jumpTimer = 0;
+    //            canNormalJump = false;
             
-            }
-            barraPropulsionBackground.fillAmount = jumpTimer / jumpTimerSet;
+    //        }
+    //        barraPropulsionBackground.fillAmount = jumpTimer / jumpTimerSet;
             
-        }
-        else
-        { 
+    //    }
+    //    else
+    //    { 
         
-            jumpTimer += restJump;
+    //        jumpTimer += restJump;
             
-            if (jumpTimer >= jumpTimerSet)
-            { 
-                jumpTimer = jumpTimerSet;
+    //        if (jumpTimer >= jumpTimerSet)
+    //        { 
+    //            jumpTimer = jumpTimerSet;
                 
-            }
-            barraPropulsionBackground.fillAmount = jumpTimer / jumpTimerSet;
+    //        }
+    //        barraPropulsionBackground.fillAmount = jumpTimer / jumpTimerSet;
         
         
-        }
+    //    }
 
      
-    }
+    //}
 
 
 
 
 #region INPUTS
     
-    private void Saltar_canceled(InputAction.CallbackContext obj)
-    {
-#if UNITY_EDITOR
-        //print("cancelado saltar");
-#endif
+//    private void Saltar_canceled(InputAction.CallbackContext obj)
+//    {
+//#if UNITY_EDITOR
+//        //print("cancelado saltar");
+//#endif
 
         
-        isAttemptingToJump = false;
-        canNormalJump = false;
-        if (propulsion.isPlaying == true)
-        { 
-            propulsion.Stop();
+//        isAttemptingToJump = false;
+//        canNormalJump = false;
+//        if (propulsion.isPlaying == true)
+//        { 
+//            propulsion.Stop();
         
-        }
+//        }
         
 
-    }
+//    }
 
 //    private void Saltar_performed(InputAction.CallbackContext obj)
 //    {
@@ -981,81 +971,94 @@ public class PlayerMovement : MonoBehaviour
 
 //    }
 
-    private void Saltar_started(InputAction.CallbackContext obj)
-    {
+//    private void Saltar_started(InputAction.CallbackContext obj)
+//    {
 
-        if (isTeleporting == true) return;
-        if (isSwinging == true) return;
+//        if (isTeleporting == true) return;
+//        if (isSwinging == true) return;
 
 
-#if UNITY_EDITOR
-        print("saltar");
-#endif
+//#if UNITY_EDITOR
+//        print("saltar");
+//#endif
         
 
-        if (jumpTimer <= 0)
-        { 
-            return;
+//        if (jumpTimer <= 0)
+//        { 
+//            return;
 
-        }
+//        }
         
-        if (propulsion.isPlaying == false)
-        { 
-            propulsion.Play();
+//        if (propulsion.isPlaying == false)
+//        { 
+//            propulsion.Play();
         
-        }
+//        }
         
-        isAttemptingToJump = true;
+//        isAttemptingToJump = true;
 
        
 
 
-    }
+//    }
 
 
-    private void Presionado_E(InputAction.CallbackContext obj)
-    {
-#if UNITY_EDITOR
-        //print("presionado E");
-#endif
+//    private void Presionado_E(InputAction.CallbackContext obj)
+//    {
+//#if UNITY_EDITOR
+//        //print("presionado E");
+//#endif
 
-        if (gameLogic.isInCharla == false)
-        { 
+//        if (gameLogic.isInCharla == false)
+//        { 
 
 
 
-            if (ropeManager.isPresaSelected == true) return;
-            if (isTeleporting == true) return;
+//            if (ropeManager.isPresaSelected == true) return;
+//            if (isTeleporting == true) return;
         
-            if (isDoorTriggerEnter == true)
-            { 
+//            if (isDoorTriggerEnter == true)
+//            { 
 
                 
 
-                if (lastDoor == null) return;
-                lastDoor.OpenDoor();
+//                if (lastDoor == null) return;
+//                lastDoor.OpenDoor();
         
         
-            }
+//            }
 
         
-        }
+//        }
         
 
         
-    }
+//    }
 
 
-    private void PararPlayer(InputAction.CallbackContext obj)
-    {
-        inputMovement.x = 0;
-
-        if (isGrounded)
+    public void StopPlayerMovement()
+    { 
+    
+        if (isGrounded == true)
         {
             canMove = false;
             isWalking = false;
         }
+
+    
+    
     }
+
+    //private void PararPlayer(InputAction.CallbackContext obj)
+    //{
+    //    playerInputs.inputMovement.x = 0;
+
+    //    if (isGrounded)
+    //    {
+    //        canMove = false;
+    //        isWalking = false;
+    //    }
+    //}
 
     
 
@@ -1122,177 +1125,177 @@ public class PlayerMovement : MonoBehaviour
     //}
 
 
-    private void Flamete_canceled(InputAction.CallbackContext obj)
-    {
-        print("parado flamete");
-        flamete.Stop();
+    //private void Flamete_canceled(InputAction.CallbackContext obj)
+    //{
+    //    print("parado flamete");
+    //    flamete.Stop();
 
-    }
+    //}
 
-    private void Flamete_performed(InputAction.CallbackContext obj)
-    {
+    //private void Flamete_performed(InputAction.CallbackContext obj)
+    //{
 
-        print("flamete");
+    //    print("flamete");
 
-        if (flamete.isPlaying == false)
-        { 
+    //    if (flamete.isPlaying == false)
+    //    { 
         
-            flamete.Play();
+    //        flamete.Play();
         
-        }
-    }
+    //    }
+    //}
 
 
-    private void Ataque_canceled(InputAction.CallbackContext obj)
-    {
+    //private void Ataque_canceled(InputAction.CallbackContext obj)
+    //{
        
-        isAttacking = false;
-        sierraCollider.enabled = false;
-        sierraFX.Stop();
-    }
+    //    isAttacking = false;
+    //    sierraCollider.enabled = false;
+    //    sierraFX.Stop();
+    //}
 
 
     
-    private void Ataque_started(InputAction.CallbackContext obj)
-    {
-        print("attack started");
-        isAttacking = true;
-        sierraCollider.enabled = true;
-        sierraFX.Play();
+    //private void Ataque_started(InputAction.CallbackContext obj)
+    //{
+    //    print("attack started");
+    //    isAttacking = true;
+    //    sierraCollider.enabled = true;
+    //    sierraFX.Play();
 
 
-    }
+    //}
 
-    public bool isPresedTaken = false;
-    [SerializeField] public GameObject objectCollide = null;
-    [SerializeField] private Transform parentObjectTaken = null;
-    [SerializeField] private Transform parentScene = null;
+    //public bool isPresedTaken = false;
+    //[SerializeField] public GameObject objectCollide = null;
+    //[SerializeField] private Transform parentObjectTaken = null;
+    //[SerializeField] private Transform parentScene = null;
     
 
 
-    private void CogerObjeto_started(InputAction.CallbackContext obj)
-    {
+//    private void CogerObjeto_started(InputAction.CallbackContext obj)
+//    {
 
         
 
-# if UNITY_EDITOR
-        print("apretado boton shift. istouching=" + isTouchingBox + " isBoxCollide=" + isBoxCollide);
-# endif
+//# if UNITY_EDITOR
+//        print("apretado boton shift. istouching=" + isTouchingBox + " isBoxCollide=" + isBoxCollide);
+//# endif
 
-        if (isTouchingBox == false)
-        {
+//        if (isTouchingBox == false)
+//        {
             
-            bool colisions = 1 <= Physics.RaycastNonAlloc(this.transform.position, this.transform.right, resultsTouchBox, 2f * facingDirection, whatIsBox);
-            print(colisions);
-            if (colisions == false )
-            { 
-                return;
+//            bool colisions = 1 <= Physics.RaycastNonAlloc(this.transform.position, this.transform.right, resultsTouchBox, 2f * facingDirection, whatIsBox);
+//            print(colisions);
+//            if (colisions == false )
+//            { 
+//                return;
             
-            }
+//            }
             
-        }
+//        }
 
-        isPresedTaken = true;
+//        isPresedTaken = true;
       
-        //apretado boton shift. isTouchingBox=True isBoxCollide=False objectCollide.name=cajas
+//        //apretado boton shift. isTouchingBox=True isBoxCollide=False objectCollide.name=cajas
 
-        if (isBoxCollide == true) return;
-        if (objectCollide == null) return;
-        if (objectCollide.GetComponent<BoxManager>().isMovable == false) return;
+//        if (isBoxCollide == true) return;
+//        if (objectCollide == null) return;
+//        if (objectCollide.GetComponent<BoxManager>().isMovable == false) return;
             
 
-        isBoxCollide = true;
-        isBoxTaken = true;
-        canMove = true;
+//        isBoxCollide = true;
+//        isBoxTaken = true;
+//        canMove = true;
             
-        if (objectCollide != null)
-        { 
-            objectCollide.transform.parent = parentObjectTaken;
-            Transform linkedBox = objectCollide.GetComponent<BoxManager>().linkedBox;
+//        if (objectCollide != null)
+//        { 
+//            objectCollide.transform.parent = parentObjectTaken;
+//            Transform linkedBox = objectCollide.GetComponent<BoxManager>().linkedBox;
 
-            if (linkedBox != null)
-            { 
-                linkedBox.transform.parent = parentObjectTaken;
+//            if (linkedBox != null)
+//            { 
+//                linkedBox.transform.parent = parentObjectTaken;
                 
-                var tempBox = linkedBox.GetComponent<BoxManager>();
-                if (tempBox != null)
-                { 
-                    tempBox.transform.parent = parentObjectTaken; //linkedBox.transform;
+//                var tempBox = linkedBox.GetComponent<BoxManager>();
+//                if (tempBox != null)
+//                { 
+//                    tempBox.transform.parent = parentObjectTaken; //linkedBox.transform;
                     
                 
-                }
+//                }
                 
-            }
+//            }
 
-            //objectCollide.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        }
+//            //objectCollide.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+//        }
 
-    }
+//    }
 
-    private void CogerObjeto_canceled(InputAction.CallbackContext obj)
-    {
+//    private void CogerObjeto_canceled(InputAction.CallbackContext obj)
+//    {
 
-        //if (isBoxTaken == false) return;
-# if UNITY_EDITOR
-        print("BOTON MAYS CANCELADO sujeta box");
-# endif
-        CancelarObjetoCogido();
-
-
+//        //if (isBoxTaken == false) return;
+//# if UNITY_EDITOR
+//        print("BOTON MAYS CANCELADO sujeta box");
+//# endif
+//        CancelarObjetoCogido();
 
 
-    }
 
-    public void CancelarObjetoCogido()
-    { 
-        var box = parentObjectTaken.GetComponentInChildren<BoxManager>();
-        if (box != null)
-        {
 
-            if (objectCollide != null)
-            {
-                objectCollide.transform.parent = parentScene;
+//    }
 
-                var box1 = objectCollide.GetComponent<BoxManager>();
-                if (box1 != null)
-                { 
-                    var tempBox2 = box1.linkedBox;
-                    if (tempBox2 != null)
-                    { 
-                        var box2 = tempBox2.GetComponent<BoxManager>();
+//    public void CancelarObjetoCogido()
+//    { 
+//        var box = parentObjectTaken.GetComponentInChildren<BoxManager>();
+//        if (box != null)
+//        {
 
-                        if (box2 != null)
-                        { 
-                            box2.transform.parent = parentScene;
+//            if (objectCollide != null)
+//            {
+//                objectCollide.transform.parent = parentScene;
+
+//                var box1 = objectCollide.GetComponent<BoxManager>();
+//                if (box1 != null)
+//                { 
+//                    var tempBox2 = box1.linkedBox;
+//                    if (tempBox2 != null)
+//                    { 
+//                        var box2 = tempBox2.GetComponent<BoxManager>();
+
+//                        if (box2 != null)
+//                        { 
+//                            box2.transform.parent = parentScene;
                         
-                        }
+//                        }
                     
                     
-                    }
+//                    }
 
-                    box1.transform.parent = parentScene;
+//                    box1.transform.parent = parentScene;
 
                 
-                }
+//                }
 
-            }
+//            }
 
-            box.transform.parent = parentScene;
-            isBoxTaken = false;
-
-        
-        }
+//            box.transform.parent = parentScene;
+//            isBoxTaken = false;
 
         
-        isPresedTaken = false;
-        isBoxCollide = false;
-        isTouchingBox = false;
+//        }
+
+        
+//        isPresedTaken = false;
+//        isBoxCollide = false;
+//        isTouchingBox = false;
         
         
-        objectCollide = null;
+//        objectCollide = null;
     
     
-    }
+//    }
 
  
 
@@ -1307,7 +1310,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        if (isAttemptingToJump == true) return;
+        //if (isAttemptingToJump == true) return;
 
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
